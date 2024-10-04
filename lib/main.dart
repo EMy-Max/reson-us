@@ -1,10 +1,13 @@
+import 'package:reservon/screens/service_selection/service_selection.dart';
 import 'package:reservon/utilities/exports.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
             // primarySwatch: Colors.blue,
               fontFamily: 'static',
           ),
-          home: Signup1(),
+          home: const ServiceSelection(),
         );
       },
     );
