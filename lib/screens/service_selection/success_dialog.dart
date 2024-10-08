@@ -127,11 +127,11 @@ class SuccessDialog extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         // Navigate to the Dashboard screen
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => const CombinedDashboardScreen(), // Replace with your dashboard screen widget
-                          ),
-                        );
+                        // Navigator.of(context).pushReplacement(
+                        //   MaterialPageRoute(
+                        //     builder: (context) => const CombinedDashboardScreen(), // Replace with your dashboard screen widget
+                        //   ),
+                        // );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,

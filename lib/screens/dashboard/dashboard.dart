@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return const MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Dashboard App',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          ),
-          home: const CombinedDashboardScreen(),
+          // theme: ThemeData(
+          //   primarySwatch: Colors.blue,
+          //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+          // ),
+          home: CombinedDashboardScreen(),
         );
       },
     );
@@ -96,7 +96,7 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
         color: Colors.white,
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -106,10 +106,10 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
                     borderRadius: BorderRadius.circular(12.r),
                     boxShadow:[
                       BoxShadow(
-                        color: Color(0xFF2B2B2B14).withOpacity(0.1),
+                        color: Colors.grey.withOpacity(0.1),
                         spreadRadius: 0,
                         blurRadius: 0.5,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       )
                     ] ,
                   ),
@@ -204,26 +204,63 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
 
                 ),
                 SizedBox(height: 20.h),
-                Text(
-                  'Schedule flow',
-                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 16.h),
-                PeriodToggleButtons(
-                  selectedPeriod: selectedPeriod,
-                  onPeriodChanged: (period) {
-                    setState(() {
-                      selectedPeriod = period;
-                    });
-                  },
-                ),
-                SizedBox(height: 16.h),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: SizedBox(
-                    width: 600.w,
-                    height: 300.h,
-                    child: ScheduleLineChart(selectedPeriod: selectedPeriod),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12.r),
+                    boxShadow:[
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 0,
+                        blurRadius: 0.5,
+                        offset: const Offset(0, 3),
+                      )
+                    ] ,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 8.w, top: 0, bottom: 0, right: 0),
+                          child: Text(
+                            'Schedule flow',
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: PeriodToggleButtons(
+                          selectedPeriod: selectedPeriod,
+                          onPeriodChanged: (period) {
+                            setState(() {
+                              selectedPeriod = period;
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: SizedBox(
+                          width: 300.w,
+                          height: 200.h,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 0.0, right: 0.0, top: 6.0, bottom: 3.0),
+                            child: ScheduleLineChart(selectedPeriod: selectedPeriod),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+
                   ),
                 ),
               ],
@@ -240,6 +277,9 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
     );
   }
 }
+
+
+///////////////////APPOINTMENT///////////////////
 
 class AppointmentCard extends StatelessWidget {
   final String title;
@@ -322,6 +362,231 @@ class AppointmentCard extends StatelessWidget {
   }
 }
 
+
+//////////SCHEDULE FLOW//////////////////
+
+class PeriodToggleButtons extends StatelessWidget {
+  final String selectedPeriod;
+  final Function(String) onPeriodChanged;
+
+  const PeriodToggleButtons({
+    super.key,
+    required this.selectedPeriod,
+    required this.onPeriodChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //width: 170.w,
+      height: 38.h,
+      decoration: BoxDecoration(
+        color: Color(0xFFEEF1F3),
+        borderRadius: BorderRadius.circular(32),
+      ),
+      padding: const EdgeInsets.all(4),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: ['Daily', 'Weekly', 'Annually'].map((period) {
+          final isSelected = selectedPeriod == period;
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isSelected ? Color(0xFF0051C4) : Colors.transparent,
+                foregroundColor: isSelected ? Colors.white : Color(0xFF667085),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+              ),
+              onPressed: () => onPeriodChanged(period),
+              child: Text(
+                period,
+                style: const TextStyle(fontSize: 12),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+
+class ScheduleLineChart extends StatelessWidget {
+  final String selectedPeriod;
+
+  const ScheduleLineChart({super.key, required this.selectedPeriod});
+
+  List<FlSpot> generateData() {
+    final random = Random();
+    List<FlSpot> spots = [];
+    int dataPoints;
+
+    switch (selectedPeriod) {
+      case 'Daily':
+        dataPoints = 30;
+        break;
+      case 'Weekly':
+        dataPoints = 52;
+        break;
+      case 'Annually':
+      default:
+        dataPoints = 12;
+        break;
+    }
+
+    for (int i = 0; i < dataPoints; i++) {
+      double y = random.nextDouble() * 3 + 1;
+      spots.add(FlSpot(i.toDouble(), y));
+    }
+
+    return spots;
+  }
+
+  String getXAxisLabel(double value) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    switch (selectedPeriod) {
+      case 'Daily':
+        return '${value.toInt() + 1}';
+      case 'Weekly':
+        return 'W${value.toInt() + 1}';
+      case 'Annually':
+      default:
+        return months[value.toInt() % 12];
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final data = generateData();
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 0.0, left: 0, bottom: 8, right: 8),
+        child: SizedBox(
+          width: max(MediaQuery.of(context).size.width, data.length * 50.0),
+          child: LineChart(
+            LineChartData(
+              gridData: FlGridData(
+                show: true,
+                drawVerticalLine: false,
+                horizontalInterval: 1,
+                getDrawingHorizontalLine: (value) {
+                  return FlLine(
+                    color: Colors.grey[300],
+                    strokeWidth: 1,
+                  );
+                },
+              ),
+              titlesData: FlTitlesData(
+                leftTitles: AxisTitles(
+                  sideTitles: SideTitles(
+                    showTitles: true,
+                    reservedSize: 30,
+                    getTitlesWidget: (value, meta) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 8, left: 0, bottom: 0, right: 8),
+                        child: Text(
+                          '${value.toInt()}k',
+                          style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                        ),
+                      );
+                    },
+                    interval: 1,
+                  ),
+                ),
+                bottomTitles: AxisTitles(
+                  sideTitles: SideTitles(
+                    showTitles: true,
+                    getTitlesWidget: (value, meta) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 8.0, left: 0, bottom: 0, right: 8),
+                        child: Text(
+                          getXAxisLabel(value),
+                          style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                        ),
+                      );
+                    },
+                    interval: 1,
+                  ),
+                ),
+                topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              ),
+              borderData: FlBorderData(show: false),
+              lineBarsData: [
+              LineChartBarData(
+              spots: data,
+              isCurved: true,
+              color: const Color(0xFF0051C4), // Keep the line color as a solid color
+              barWidth: 1,
+              isStrokeCapRound: true,
+              dotData: FlDotData(show: false),
+              belowBarData: BarAreaData(
+                show: true,
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0x550051C4),
+                    Color(0x550051C4),
+                    Color(0x55FFFFFF),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+            ),
+
+
+              ],
+              lineTouchData: LineTouchData(
+                touchTooltipData: LineTouchTooltipData(
+                  tooltipBgColor: const Color(0xFF0B3558),
+                  tooltipMargin: 10, // Adjust this value for spacing from the touch point
+                  getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
+                    return touchedBarSpots.map((barSpot) {
+                      return LineTooltipItem(
+                        '${(barSpot.y * 1000).toStringAsFixed(0)}\n schedules',
+                        const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          height: 1,
+                        ),
+                      );
+                    }).toList();
+                  },
+                  // You can adjust the padding for the tooltip
+                  tooltipPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8), // Adjust the padding if needed
+                  // Specify the alignment for the tooltip
+                  fitInsideHorizontally: true,
+                  fitInsideVertically: true,
+                ),
+                touchCallback: (FlTouchEvent event, LineTouchResponse? touchResponse) {
+                  // You can add custom touch handling here if needed
+                },
+                handleBuiltInTouches: true,
+              ),
+
+
+              minX: 0,
+              maxX: data.length.toDouble() - 1,
+              minY: 0,
+              maxY: 5,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+////////////////NAVIGATION BAR////////////////////////////
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
 
@@ -340,189 +605,6 @@ class CustomBottomNavBar extends StatelessWidget {
           IconButton(icon: Icon(Icons.build, size: 24.sp), onPressed: () {}),
           IconButton(icon: Icon(Icons.web, size: 24.sp), onPressed: () {}),
         ],
-      ),
-    );
-  }
-}
-
-
-class PeriodToggleButtons extends StatelessWidget {
-  final String selectedPeriod;
-  final Function(String) onPeriodChanged;
-
-  const PeriodToggleButtons({
-    Key? key,
-    required this.selectedPeriod,
-    required this.onPeriodChanged,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(30),
-      ),
-      padding: const EdgeInsets.all(4),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: ['Daily', 'Weekly', 'Annually'].map((period) {
-          final isSelected = selectedPeriod == period;
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: isSelected ? Colors.blue : Colors.transparent,
-                foregroundColor: isSelected ? Colors.white : Colors.black,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              ),
-              onPressed: () => onPeriodChanged(period),
-              child: Text(
-                period,
-                style: TextStyle(fontSize: 14),
-              ),
-            ),
-          );
-        }).toList(),
-      ),
-    );
-  }
-}
-
-class ScheduleLineChart extends StatelessWidget {
-  final String selectedPeriod;
-
-  const ScheduleLineChart({super.key, required this.selectedPeriod});
-
-  List<FlSpot> generateData() {
-    final random = Random();
-    List<FlSpot> spots = [];
-    int dataPoints;
-
-    switch (selectedPeriod) {
-      case 'Daily':
-        dataPoints = 365;
-        break;
-      case 'Weekly':
-        dataPoints = 52;
-        break;
-      case 'Annually':
-      default:
-        dataPoints = 12;
-        break;
-    }
-
-    for (int i = 0; i < dataPoints; i++) {
-      double y = random.nextDouble() * 3 + 2; // Random value between 2 and 5
-      spots.add(FlSpot(i.toDouble(), y));
-    }
-
-    return spots;
-  }
-
-  String getXAxisLabel(double value) {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    switch (selectedPeriod) {
-      case 'Daily':
-        int dayOfYear = value.toInt();
-        int month = 0;
-        while (dayOfYear > DateTime(2024, month + 1, 0).day) {
-          dayOfYear -= DateTime(2024, month + 1, 0).day;
-          month++;
-        }
-        return months[month];
-      case 'Weekly':
-        return months[(value ~/ 4).clamp(0, 11)];
-      case 'Annually':
-      default:
-        return months[value.toInt() % 12];
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final data = generateData();
-    return LineChart(
-      LineChartData(
-        gridData: FlGridData(show: false),
-        titlesData: FlTitlesData(
-          leftTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 40.w,
-              getTitlesWidget: (value, meta) {
-                return Text(
-                  '${value.toInt()}k',
-                  style: TextStyle(color: Colors.grey[600], fontSize: 12.sp),
-                );
-              },
-            ),
-          ),
-          bottomTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              getTitlesWidget: (value, meta) {
-                return Text(
-                  getXAxisLabel(value),
-                  style: TextStyle(color: Colors.grey[600], fontSize: 12.sp),
-                );
-              },
-              interval: selectedPeriod == 'Daily' ? 30 : 1,
-            ),
-          ),
-          topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-        ),
-        borderData: FlBorderData(show: false),
-        lineBarsData: [
-          LineChartBarData(
-            spots: data,
-            isCurved: true,
-            color: Colors.blue.withOpacity(0.5),
-            barWidth: 4,
-            isStrokeCapRound: true,
-            dotData: FlDotData(show: false),
-            belowBarData: BarAreaData(
-              show: true,
-              color: Colors.blue.withOpacity(0.1),
-            ),
-          ),
-        ],
-        lineTouchData: LineTouchData(
-          touchTooltipData: LineTouchTooltipData(
-            tooltipBgColor: Colors.blueAccent,
-            getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
-              return touchedBarSpots.map((barSpot) {
-                return LineTooltipItem(
-                  '${barSpot.y.toStringAsFixed(2)}k schedules',
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14.sp),
-                );
-              }).toList();
-            },
-          ),
-          handleBuiltInTouches: true,
-          getTouchedSpotIndicator: (LineChartBarData barData, List<int> spotIndexes) {
-            return spotIndexes.map((spotIndex) {
-              return TouchedSpotIndicatorData(
-                FlLine(color: Colors.blue, strokeWidth: 2),
-                FlDotData(
-                  getDotPainter: (spot, percent, barData, index) {
-                    return FlDotCirclePainter(
-                      radius: 4,
-                      color: Colors.white,
-                      strokeWidth: 2,
-                      strokeColor: Colors.blue,
-                    );
-                  },
-                ),
-              );
-            }).toList();
-          },
-        ),
       ),
     );
   }
