@@ -14,6 +14,7 @@ export 'package:reservon/utilities/global_variables.dart';
 //components exports
 export 'package:reservon/components/brand_logo_name_tag.dart';
 export 'package:reservon/components/auth_process_appbar.dart';
+export 'package:reservon/components/progress_bar1.dart';
 
 
 //screen exports
