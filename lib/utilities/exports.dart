@@ -20,6 +20,8 @@ export 'package:reservon/components/business_type_dropdown.dart';
 export 'package:reservon/components/signup_buttons.dart';
 export 'package:reservon/components/auth_nav_button.dart';
 export 'package:reservon/components/notification_checkbox.dart';
+export 'package:reservon/components/progress_bar1.dart';
+
 
 
 //screen exports
