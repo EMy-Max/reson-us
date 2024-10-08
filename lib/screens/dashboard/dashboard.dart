@@ -92,104 +92,142 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Appointments',
-                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 16.h),
-              SizedBox(
-                height: 300.h, // Adjusted height to accommodate two rows
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    SizedBox(
-                      width: 400.w, // Width of two cards plus spacing
-                      child: Column(
-                        children: [
-                          Row(
+      body: Container(
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12.r),
+                    boxShadow:[
+                      BoxShadow(
+                        color: Color(0xFF2B2B2B14).withOpacity(0.1),
+                        spreadRadius: 0,
+                        blurRadius: 0.5,
+                        offset: Offset(0, 3),
+                      )
+                    ] ,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft, // Aligns the text to the left
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 8.w, top: 0, bottom: 0, right: 0),
+                            child: Text(
+                              'Appointments',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16.h),
+                        SizedBox(
+                          height: 260.h, // Adjusted height to accommodate two rows
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
                             children: [
-                              Expanded(
-                                child: AppointmentCard(
-                                  title: 'Upcoming',
-                                  count: 12,
-                                  subtitle: 'Today',
-                                  color: Colors.yellow[50]!,
-                                  textColor: Colors.orange,
+                              SizedBox(
+                                width: 400.w, // Width of two cards plus spacing
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Expanded(
+                                          child: AppointmentCard(
+                                            title: 'Upcoming',
+                                            count: 12,
+                                            subtitle: 'Today',
+                                            color: Color(0xFFFEFAEE),
+                                            textColor: Color(0xFF926C01),
+                                            textBoxColor: Color(0xFFFCF0CC),
+                                          ),
+                                        ),
+                                        SizedBox(width: 16.w),
+                                        const Expanded(
+                                          child: AppointmentCard(
+                                            title: 'Done',
+                                            count: 8,
+                                            subtitle: 'Today',
+                                            color: Color(0xFFF0F9F4),
+                                            textColor: Color(0xFF1C8A4C),
+                                            textBoxColor: Color(0xFFD3EEDF),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 16.h),
+                                    Row(
+                                      children: [
+                                        const Expanded(
+                                          child: AppointmentCard(
+                                            title: 'Canceled',
+                                            count: 8,
+                                            subtitle: 'Today',
+                                            color: Color(0xFFFEF1E8),
+                                            textColor: Color(0xFFB51D15),
+                                            textBoxColor: Color(0xFFFCE4D1),
+                                          ),
+                                        ),
+                                        SizedBox(width: 16.w),
+                                        const Expanded(
+                                          child: AppointmentCard(
+                                            title: 'No show',
+                                            count: 2,
+                                            subtitle: 'Today',
+                                            color: Color(0xFFEEF1F3),
+                                            textColor: Color(0xFF04111D),
+                                            textBoxColor: Color(0xFFCED6DD),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(width: 16.w),
-                              Expanded(
-                                child: AppointmentCard(
-                                  title: 'Done',
-                                  count: 8,
-                                  subtitle: 'Today',
-                                  color: Colors.green[50]!,
-                                  textColor: Colors.green,
-                                ),
-                              ),
+                              // Additional sets of 2x2 cards can be added here if needed
                             ],
                           ),
-                          SizedBox(height: 16.h),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: AppointmentCard(
-                                  title: 'Canceled',
-                                  count: 8,
-                                  subtitle: 'Today',
-                                  color: Colors.red[50]!,
-                                  textColor: Colors.red,
-                                ),
-                              ),
-                              SizedBox(width: 16.w),
-                              Expanded(
-                                child: AppointmentCard(
-                                  title: 'No show',
-                                  count: 2,
-                                  subtitle: 'Today',
-                                  color: Colors.grey[200]!,
-                                  textColor: Colors.grey[700]!,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    // You can add more sets of 2x2 cards here if needed
-                  ],
+                  )
+
                 ),
-              ),
-              //SizedBox(height: 10.h),
-              Text(
-                'Schedule flow',
-                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 16.h),
-              PeriodToggleButtons(
-                selectedPeriod: selectedPeriod,
-                onPeriodChanged: (period) {
-                  setState(() {
-                    selectedPeriod = period;
-                  });
-                },
-              ),
-              SizedBox(height: 16.h),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: SizedBox(
-                  width: 600.w,
-                  height: 300.h,
-                  child: ScheduleLineChart(selectedPeriod: selectedPeriod),
+                SizedBox(height: 20.h),
+                Text(
+                  'Schedule flow',
+                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                 ),
-              ),
-            ],
+                SizedBox(height: 16.h),
+                PeriodToggleButtons(
+                  selectedPeriod: selectedPeriod,
+                  onPeriodChanged: (period) {
+                    setState(() {
+                      selectedPeriod = period;
+                    });
+                  },
+                ),
+                SizedBox(height: 16.h),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SizedBox(
+                    width: 600.w,
+                    height: 300.h,
+                    child: ScheduleLineChart(selectedPeriod: selectedPeriod),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -209,6 +247,7 @@ class AppointmentCard extends StatelessWidget {
   final String? subtitle;
   final Color color;
   final Color textColor;
+  final Color textBoxColor;
 
   const AppointmentCard({
     super.key,
@@ -217,6 +256,7 @@ class AppointmentCard extends StatelessWidget {
     this.subtitle,
     required this.color,
     required this.textColor,
+    required this.textBoxColor,
   });
 
   @override
@@ -230,17 +270,26 @@ class AppointmentCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.r),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: TextStyle(
-                  color: textColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14.sp,
+              Container(
+                decoration: BoxDecoration(
+                  color: textBoxColor,
+                  borderRadius: BorderRadius.all(Radius.circular(20.r)),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: textColor,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14.sp,
+                    ),
+                  ),
                 ),
               ),
               Row(
@@ -250,7 +299,7 @@ class AppointmentCard extends StatelessWidget {
                   Text(
                     count.toString(),
                     style: TextStyle(
-                      fontSize: 36.sp,
+                      fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -259,7 +308,7 @@ class AppointmentCard extends StatelessWidget {
                     Text(
                       subtitle!,
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: const Color(0xFF667085),
                         fontSize: 12.sp,
                       ),
                     ),
@@ -296,39 +345,45 @@ class CustomBottomNavBar extends StatelessWidget {
   }
 }
 
+
 class PeriodToggleButtons extends StatelessWidget {
   final String selectedPeriod;
   final Function(String) onPeriodChanged;
 
   const PeriodToggleButtons({
-    super.key,
+    Key? key,
     required this.selectedPeriod,
     required this.onPeriodChanged,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(20.r),
+        borderRadius: BorderRadius.circular(30),
       ),
+      padding: const EdgeInsets.all(4),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: ['Daily', 'Weekly', 'Annually'].map((period) {
+          final isSelected = selectedPeriod == period;
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w),
-            child: ChoiceChip(
-              label: Text(period, style: TextStyle(fontSize: 14.sp)),
-              selected: selectedPeriod == period,
-              onSelected: (selected) {
-                if (selected) {
-                  onPeriodChanged(period);
-                }
-              },
-              selectedColor: Colors.blue,
-              labelStyle: TextStyle(
-                color: selectedPeriod == period ? Colors.white : Colors.black,
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isSelected ? Colors.blue : Colors.transparent,
+                foregroundColor: isSelected ? Colors.white : Colors.black,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              ),
+              onPressed: () => onPeriodChanged(period),
+              child: Text(
+                period,
+                style: TextStyle(fontSize: 14),
               ),
             ),
           );

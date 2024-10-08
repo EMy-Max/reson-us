@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
             // primarySwatch: Colors.blue,
               fontFamily: 'static',
           ),
+          //home: const CombinedDashboardScreen(),
           home: const ServiceSelection(),
         );
       },
