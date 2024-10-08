@@ -1,7 +1,7 @@
 import 'package:reservon/utilities/exports.dart';
 
-class Signup1 extends StatelessWidget {
-  const Signup1({super.key});
+class PasswordReset extends StatelessWidget {
+  const PasswordReset({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Signup1 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               AuthProcessAppBar(),
+              AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
@@ -28,66 +28,34 @@ class Signup1 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Sign up to $brandName!',
+                      'Reset password',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),
                     Text(
-                      'To experience the ultimate solution for managing appointments and invoices.',
+                      'Provide your login details to continue',
                       style: TextStyle(color: grey3),
                     ),
                     SizedBox(height: 30.h),
                     TextField(
                       decoration: InputDecoration(
-                        labelText: 'Enter your email',
+                        labelText: 'Email',
                         labelStyle: TextStyle(color: grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:grey3, width: 2.0),
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.h),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Create a password',
-                        labelStyle: TextStyle(color: grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: Icon(Icons.visibility_off),
-                      ),
-                    ),
-                    SizedBox(height: 20.h),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm password',
-                        labelStyle: TextStyle(color: grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: Icon(Icons.visibility_off),
-                      ),
-                    ),
-                    SizedBox(height: 20.h),
-                    NotificationCheckbox(),
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 30.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
-                            Text('Got an account?', style: TextStyle(color: primaryColor),),
+                            Text("Remember password?", style: TextStyle(color: primaryColor),),
                             SizedBox(width: 5.w,),
                             Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
@@ -95,7 +63,7 @@ class Signup1 extends StatelessWidget {
                         AuthNavButton(buttonText: 'Continue', onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Signup2()),
+                            MaterialPageRoute(builder: (context) => PasswordReset2()),
                           );
                         },),
                       ],
@@ -109,7 +77,6 @@ class Signup1 extends StatelessWidget {
                         AppleSignUpButton(),
                       ],
                     ),
-                    // SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -118,9 +85,6 @@ class Signup1 extends StatelessWidget {
           ),
         ),
       ),
-    );
+    );;
   }
 }
-
-
-

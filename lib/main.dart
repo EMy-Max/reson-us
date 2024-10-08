@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Reservon',
           theme: ThemeData(
-            // primarySwatch: Colors.blue,
+            scaffoldBackgroundColor: Color(0xFFF0F0F0), // Light grey background
+            // primarySwatch: Color(0XFF0051C4),
               fontFamily: 'static',
           ),
           home: Signup1(),
