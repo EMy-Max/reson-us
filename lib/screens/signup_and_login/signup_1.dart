@@ -12,7 +12,7 @@ class Signup1 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               AuthProcessAppBar(),
+                AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
