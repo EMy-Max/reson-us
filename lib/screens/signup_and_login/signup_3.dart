@@ -6,19 +6,19 @@ class Signup3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthProcessAppBar(),
+              const AuthProcessAppBar(),
               SizedBox(
                 height: ScreenUtil().setHeight(30), // Adapts to screen size
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-                margin: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: Colors.white,
@@ -27,58 +27,58 @@ class Signup3 extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Bank account details',
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 10),
-                    Text(
+                    const SizedBox(height: 10),
+                    const Text(
                       'Let all payment made from your customers go to your bank account directly!',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
-                    SizedBox(height: 30),
-                    BusinessTypeDropdown(),
+                    const SizedBox(height: 30),
+                    const BusinessTypeDropdown(),
                     SizedBox(height: 20.h),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         labelText: 'Account number',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
-                    TextField(
+                    const SizedBox(height: 20),
+                    const TextField(
                       decoration: InputDecoration(
                         labelText: 'Account name',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
-                            Text('Got an account?', style: TextStyle(color: primaryColor),),
+                            const Text('Got an account?', style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            const Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Sign Up', onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Login()),
+                            MaterialPageRoute(builder: (context) => const Login()),
                           );
                         },),
                       ],
@@ -87,15 +87,15 @@ class Signup3 extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GoogleSignUpButton(),
+                        const GoogleSignUpButton(),
                         SizedBox(width: 20.w),
-                        AppleSignUpButton(),
+                        const AppleSignUpButton(),
                       ],
                     ),
                   ],
                 ),
               ),
-              AuthBottomCard()
+              const AuthBottomCard()
             ],
           ),
         ),

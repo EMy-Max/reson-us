@@ -17,13 +17,13 @@ class AppleSignUpButton extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.r),
             border: Border.all(
-              color: grey2, // Light grey color
+              color: AppColors.grey2, // Light grey color
               width: 1.0, // Border width of 1px
             ),
           ),
           child: Row(
             children: [
-              Icon(Icons.apple_rounded),
+              const Icon(Icons.apple_rounded),
               SizedBox(width: 5.w,),
               Text('Signup with apple', style: TextStyle(fontSize: 12.sp),)
             ],
@@ -50,13 +50,13 @@ class GoogleSignUpButton extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.r),
             border: Border.all(
-              color: grey2, // Light grey color
+              color: AppColors.grey2, // Light grey color
               width: 1.0, // Border width of 1px
             ),
           ),
           child: Row(
             children: [
-              Image(image: AssetImage('images/google icon.png')),
+              const Image(image: AssetImage('images/google icon.png')),
               SizedBox(width: 5.w,),
               Text('Signup with google', style: TextStyle(fontSize: 12.sp),)
             ],

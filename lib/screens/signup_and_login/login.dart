@@ -6,13 +6,13 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthProcessAppBar(),
+              const AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
@@ -32,20 +32,20 @@ class Login extends StatelessWidget {
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),
-                    Text(
+                    const Text(
                       'Provide your login details to continue',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
@@ -54,22 +54,22 @@ class Login extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: const TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                        border: const OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
-                        suffixIcon: Icon(Icons.visibility_off),
+                        suffixIcon: const Icon(Icons.visibility_off),
                       ),
                     ),
                     SizedBox(height: 10.h),
                     Row(
                       children: [
-                        Text('Forgot Password?', style: TextStyle(color: primaryColor, fontSize: 10.sp),),
+                        Text('Forgot Password?', style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp),),
                         SizedBox(width: 5.w,),
-                        Text('Reset', style: TextStyle(color: primaryColor, fontSize: 10.sp, fontWeight: FontWeight.w500),),
+                        Text('Reset', style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp, fontWeight: FontWeight.w500),),
                       ],
                     ),
                     SizedBox(height: 30.h),
@@ -78,9 +78,9 @@ class Login extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text("Don't have an account?", style: TextStyle(color: primaryColor),),
+                            const Text("Don't have an account?", style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Sign up', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            const Text('Sign up', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {
@@ -92,15 +92,15 @@ class Login extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GoogleSignUpButton(),
+                        const GoogleSignUpButton(),
                         SizedBox(width: 20.w),
-                        AppleSignUpButton(),
+                        const AppleSignUpButton(),
                       ],
                     ),
                   ],
                 ),
               ),
-              AuthBottomCard()
+              const AuthBottomCard()
             ],
           ),
         ),

@@ -4,7 +4,7 @@ class CustomProgressIndicator extends StatelessWidget {
   final int totalSteps;
   final int currentStep;
 
-  CustomProgressIndicator({
+  const CustomProgressIndicator({super.key,
     required this.totalSteps,
     required this.currentStep,
   });
@@ -40,9 +40,9 @@ class CustomProgressIndicator extends StatelessWidget {
                   height: 30,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: index < currentStep ? Color(0XFFFCF0CC) : Colors.grey[300],
+                    color: index < currentStep ? const Color(0XFFFCF0CC) : Colors.grey[300],
                     border: Border.all(
-                      color: index < currentStep ? Color(0XFFFCF0CC) : Colors.grey[300]!,
+                      color: index < currentStep ? const Color(0XFFFCF0CC) : Colors.grey[300]!,
                       width: 2, // Adjusted border width for better visibility
                     ),
                   ),

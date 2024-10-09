@@ -6,13 +6,13 @@ class Signup2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthProcessAppBar(),
+              const AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
@@ -32,52 +32,52 @@ class Signup2 extends StatelessWidget {
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),
-                    Text(
+                    const Text(
                       'Let’s know more about you and your business',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Your name',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: const TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                        border: const OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         labelText: 'Business name',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    BusinessTypeDropdown(),
+                    const BusinessTypeDropdown(),
                     SizedBox(height: 20.h),
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                       width: double.infinity,
                       alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
                         // color: grey2,
                         borderRadius: BorderRadius.circular(8.r),
                         border: Border.all(
-                          color: grey3,
+                          color: AppColors.grey3,
                           // width: 1.sp,
                         )
                       ),
-                      child: CountryCodePicker(
+                      child: const CountryCodePicker(
 
                       ),
                     ),
@@ -87,15 +87,15 @@ class Signup2 extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text('Got an account?', style: TextStyle(color: primaryColor),),
+                            const Text('Got an account?', style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            const Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Signup3()),
+                            MaterialPageRoute(builder: (context) => const Signup3()),
                           );
                         },),
                       ],
@@ -104,15 +104,15 @@ class Signup2 extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GoogleSignUpButton(),
+                        const GoogleSignUpButton(),
                         SizedBox(width: 20.w),
-                        AppleSignUpButton(),
+                        const AppleSignUpButton(),
                       ],
                     ),
                   ],
                 ),
               ),
-              AuthBottomCard()
+              const AuthBottomCard()
             ],
           ),
         ),

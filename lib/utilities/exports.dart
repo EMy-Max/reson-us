@@ -4,7 +4,8 @@ export 'package:flutter/material.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:provider/provider.dart';
 export 'package:country_code_picker/country_code_picker.dart';
-
+export 'package:fl_chart/fl_chart.dart';
+export 'dart:math';
 
 //utils exports
 export 'package:reservon/utilities/constants.dart';
@@ -35,3 +36,4 @@ export 'package:reservon/screens/signup_and_login/login.dart';
 export 'package:reservon/screens/signup_and_login/password_reset_1.dart';
 export 'package:reservon/screens/signup_and_login/password_reset_2.dart';
 export 'package:reservon/screens/signup_and_login/reset_success_modal.dart';
+export 'package:reservon/screens/dashboard/dashboard.dart';

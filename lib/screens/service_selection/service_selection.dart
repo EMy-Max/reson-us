@@ -82,7 +82,7 @@ class _ServiceSelectionState extends State<ServiceSelection> {
         }
             : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: isAnyServiceSelected ? Colors.blue : grey2,
+          backgroundColor: isAnyServiceSelected ? Colors.blue : AppColors.grey2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25.h),
           ),
@@ -235,7 +235,7 @@ class _ServiceSelectionState extends State<ServiceSelection> {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFFEEF4FE) : grey1,
+            color: isSelected ? const Color(0xFFEEF4FE) : AppColors.grey1,
             borderRadius: BorderRadius.circular(20),
           ),
           padding: EdgeInsets.all(16.w),
@@ -253,7 +253,7 @@ class _ServiceSelectionState extends State<ServiceSelection> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: isSelected ? const Color(0xFFFAE199) : grey1,
+                        color: isSelected ? const Color(0xFFFAE199) : AppColors.grey1,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       padding: EdgeInsets.all(7.w),
@@ -314,13 +314,13 @@ class _ServiceSelectionState extends State<ServiceSelection> {
                             planType == 'Basic' ? 'For 20 schedules' : 'Per Month',
                             style: TextStyle(
                               fontSize: 14.sp,
-                              color: grey3,
+                              color: AppColors.grey3,
                             )
                         ),
                       ],
                     ),
-                    Divider(
-                      color: grey2,
+                    const Divider(
+                      color: AppColors.grey2,
                       thickness: 1,
                       height: 20,
                     ),

@@ -6,13 +6,13 @@ class Signup1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                AuthProcessAppBar(),
+                const AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
@@ -28,24 +28,24 @@ class Signup1 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Sign up to $brandName!',
+                      'Sign up to AppColors.brandName!',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),
-                    Text(
+                    const Text(
                       'To experience the ultimate solution for managing appointments and invoices.',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Enter your email',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: const TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                        border: const OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
                       ),
                     ),
@@ -54,14 +54,14 @@ class Signup1 extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Create a password',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: const TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                        border: const OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
-                        suffixIcon: Icon(Icons.visibility_off),
+                        suffixIcon: const Icon(Icons.visibility_off),
                       ),
                     ),
                     SizedBox(height: 20.h),
@@ -69,33 +69,33 @@ class Signup1 extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Confirm password',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: const TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                        border: const OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
-                        suffixIcon: Icon(Icons.visibility_off),
+                        suffixIcon: const Icon(Icons.visibility_off),
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    NotificationCheckbox(),
+                    const NotificationCheckbox(),
                     SizedBox(height: 40.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
-                            Text('Got an account?', style: TextStyle(color: primaryColor),),
+                            const Text('Got an account?', style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            const Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Signup2()),
+                            MaterialPageRoute(builder: (context) => const Signup2()),
                           );
                         },),
                       ],
@@ -104,16 +104,16 @@ class Signup1 extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GoogleSignUpButton(),
+                        const GoogleSignUpButton(),
                         SizedBox(width: 20.w),
-                        AppleSignUpButton(),
+                        const AppleSignUpButton(),
                       ],
                     ),
                     // SizedBox(height: 20),
                   ],
                 ),
               ),
-              AuthBottomCard()
+              const AuthBottomCard()
             ],
           ),
         ),

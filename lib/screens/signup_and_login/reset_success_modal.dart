@@ -4,7 +4,7 @@ import 'package:reservon/utilities/exports.dart';
 class ResetSuccessModal extends StatelessWidget {
   final VoidCallback onOkPressed ;
 
-  const ResetSuccessModal({Key? key, required this.onOkPressed}) : super(key: key);
+  const ResetSuccessModal({super.key, required this.onOkPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +23,22 @@ class ResetSuccessModal extends StatelessWidget {
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 8.h,horizontal: 24.w),
               decoration: BoxDecoration(
-                color: grey1,
+                color: AppColors.grey1,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(16.r), topRight: Radius.circular(16.r)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image(image: AssetImage('images/Featured success icon.png')),
+                  const Image(image: AssetImage('images/Featured success icon.png')),
                   Container(
                     alignment: Alignment.center,
                     width: 24.w,
                     height: 24.h,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0XFFEEF1F3),
                       shape: BoxShape.circle,
                     ),
-                    child: Text('X', style: TextStyle(color: Colors.black,),)
+                    child: const Text('X', style: TextStyle(color: Colors.black,),)
                   ),
                 ],
               ),
@@ -60,11 +60,11 @@ class ResetSuccessModal extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5.h),
-                  Text(
+                  const Text(
                     'Your password has been changed successfully.',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: grey3,
+                      color: AppColors.grey3,
                     ),
                   ),
                   SizedBox(height: 48.h,),
@@ -78,10 +78,10 @@ class ResetSuccessModal extends StatelessWidget {
                       height: 38.h,
                       // padding: EdgeInsets.symmetric(vertical: 15),
                       decoration: BoxDecoration(
-                          color: primaryColor,
+                          color: AppColors.primaryColor,
                           borderRadius: BorderRadius.circular(32.r)
                       ),
-                      child: Text(
+                      child: const Text(
                         'Ok',
                         textAlign: TextAlign.center,
                         style: TextStyle(
