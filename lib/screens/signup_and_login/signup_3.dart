@@ -1,7 +1,7 @@
 import 'package:reservon/utilities/exports.dart';
 
-class Signup1 extends StatelessWidget {
-  const Signup1({super.key});
+class Signup3 extends StatelessWidget {
+  const Signup3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,15 +12,15 @@ class Signup1 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                AuthProcessAppBar(),
+              AuthProcessAppBar(),
               SizedBox(
-                height: 30.h, // Adapts to screen size
+                height: ScreenUtil().setHeight(30), // Adapts to screen size
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
-                margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 32.h),
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                margin: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.r),
+                  borderRadius: BorderRadius.circular(8),
                   color: Colors.white,
                 ),
                 width: double.infinity,
@@ -28,60 +28,43 @@ class Signup1 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Sign up to $brandName!',
-                      style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                      'Bank account details',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 10),
                     Text(
-                      'To experience the ultimate solution for managing appointments and invoices.',
+                      'Let all payment made from your customers go to your bank account directly!',
                       style: TextStyle(color: grey3),
                     ),
-                    SizedBox(height: 30.h),
+                    SizedBox(height: 30),
+                    BusinessTypeDropdown(),
+                    SizedBox(height: 20.h),
                     TextField(
                       decoration: InputDecoration(
-                        labelText: 'Enter your email',
+                        labelText: 'Account number',
                         labelStyle: TextStyle(color: grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:grey3, width: 2.0),
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 20),
                     TextField(
-                      obscureText: true,
                       decoration: InputDecoration(
-                        labelText: 'Create a password',
+                        labelText: 'Account name',
                         labelStyle: TextStyle(color: grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:grey3, width: 2.0),
                         ),
-                        suffixIcon: Icon(Icons.visibility_off),
                       ),
                     ),
-                    SizedBox(height: 20.h),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm password',
-                        labelStyle: TextStyle(color: grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: Icon(Icons.visibility_off),
-                      ),
-                    ),
-                    SizedBox(height: 20.h),
-                    NotificationCheckbox(),
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -92,10 +75,10 @@ class Signup1 extends StatelessWidget {
                             Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
-                        AuthNavButton(buttonText: 'Continue', onTap: () {
+                        AuthNavButton(buttonText: 'Sign Up', onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Signup2()),
+                            MaterialPageRoute(builder: (context) => Login()),
                           );
                         },),
                       ],
@@ -109,7 +92,6 @@ class Signup1 extends StatelessWidget {
                         AppleSignUpButton(),
                       ],
                     ),
-                    // SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -121,6 +103,4 @@ class Signup1 extends StatelessWidget {
     );
   }
 }
-
-
 

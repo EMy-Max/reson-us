@@ -14,10 +14,10 @@ Color secondaryColor  = Color(0XFF0B3558);  //Secondary Color
 Color tertiaryColor  = Color(0XFF23AD5F);  //Tertiary Color
 
 //Semantic Colors
-Color greenSuccess  = Color(0XFF23AD5F);  //Green success Color
+Color greenSuccess  = const Color(0XFF23AD5F);  //Green success Color
 
-Color yellowWarningL  = Color(0XFFFCF0CC);  //Yellow Warning light Color
-Color yellowWarningD  = Color(0XFFF4B402);  //Yellow Warning dark Color
+Color yellowWarningL  = const Color(0XFFFCF0CC);  //Yellow Warning light Color
+Color yellowWarningD  = const Color(0XFFF4B402);  //Yellow Warning dark Color
 
 Color redErrorL  = Color(0XFF23AD5F);  //Red error light Color
 Color redErrorD  = Color(0XFF23AD5F);  //Red error dark Color
