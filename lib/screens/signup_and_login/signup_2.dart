@@ -27,6 +27,11 @@ class Signup2 extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      width:250.w,
+                      child: CustomProgressIndicator(totalSteps: 3, currentStep: 2,),
+                    ),
+                    SizedBox(height: 20.h,),
                     Text(
                       'Almost there!',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
@@ -77,8 +82,12 @@ class Signup2 extends StatelessWidget {
                           // width: 1.sp,
                         )
                       ),
-                      child: CountryCodePicker(
+                      child: Row(
+                        children: [
+                          CountryCodePicker(
 
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(height: 40.h),

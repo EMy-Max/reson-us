@@ -27,6 +27,11 @@ class Signup1 extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      width:250.w,
+                      child: CustomProgressIndicator(totalSteps: 3, currentStep: 1,),
+                    ),
+                    SizedBox(height: 20.h,),
                     Text(
                       'Sign up to $brandName!',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
@@ -34,7 +39,7 @@ class Signup1 extends StatelessWidget {
                     SizedBox(height: 10.h),
                     Text(
                       'To experience the ultimate solution for managing appointments and invoices.',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: grey3, fontSize: 14.sp,),
                     ),
                     SizedBox(height: 30.h),
                     TextField(

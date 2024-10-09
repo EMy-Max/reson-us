@@ -27,6 +27,11 @@ class Signup3 extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      width:250.w,
+                      child: CustomProgressIndicator(totalSteps: 3, currentStep: 3,),
+                    ),
+                    SizedBox(height: 20.h,),
                     Text(
                       'Bank account details',
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
