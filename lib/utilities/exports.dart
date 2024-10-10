@@ -28,6 +28,9 @@ export 'package:reservon/components/dashb_navbar.dart';
 
 //screen exports
 export 'package:reservon/screens/signup_and_login/signup_1.dart';
+export 'package:reservon/screens/service_selection/confirm_plan.dart';
+export 'package:reservon/screens/service_selection/success_dialog.dart';
+export 'package:flutter/services.dart';
 export 'package:reservon/screens/signup_and_login/signup_2.dart';
 export 'package:reservon/screens/signup_and_login/signup_3.dart';
 export 'package:reservon/screens/signup_and_login/login.dart';

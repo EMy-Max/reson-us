@@ -1,10 +1,14 @@
+import 'package:reservon/screens/service_selection/service_selection.dart';
 import 'package:reservon/utilities/exports.dart';
+import 'package:reservon/screens/dashboard/dashboard.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -20,7 +24,8 @@ class MyApp extends StatelessWidget {
             // primarySwatch: Color(0XFF0051C4),
               fontFamily: 'static',
           ),
-          home: DashboardAppBar(),
+          //home: const CombinedDashboardScreen(),
+          home: const ServiceSelection(),
         );
       },
     );
