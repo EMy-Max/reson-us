@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             // primarySwatch: Color(0XFF0051C4),
               fontFamily: 'static',
           ),
-          home: Signup1(),
+          home: DashboardAppBar(),
         );
       },
     );
