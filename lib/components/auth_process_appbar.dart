@@ -9,16 +9,16 @@ class AuthProcessAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          BrandLogoNameTag(),
+          const BrandLogoNameTag(),
           Row(
             children: [
               Icon(Icons.language,
                   color: secondaryColor, size: 20), // Added globe icon
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Text('EN', style: TextStyle(color: secondaryColor)),
               Icon(Icons.keyboard_arrow_down_rounded, color: secondaryColor),
             ],
