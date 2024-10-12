@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
               fontFamily: 'static',
           ),
           //home: const CombinedDashboardScreen(),
-          home: const ServiceSelection(),
+          home: CombinedDashboardScreen(),
         );
       },
     );

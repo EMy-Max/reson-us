@@ -1,6 +1,6 @@
 import 'package:reservon/utilities/exports.dart';
 
-class DashboardAppBar extends StatelessWidget {
+class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget{
   const DashboardAppBar({super.key});
 
   @override
@@ -62,6 +62,7 @@ class LanguageDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
+      color: Colors.white,
       offset: Offset(0, 40),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Row(
@@ -109,6 +110,7 @@ class UserDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
+      color: Colors.white,
       offset: Offset(0, 56),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Row(
@@ -138,11 +140,11 @@ class UserDropdown extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                       ),
                       Text(
                         email,
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        style: TextStyle(fontSize: 12, color: Colors.black),
                       ),
                     ],
                   ),
@@ -157,21 +159,20 @@ class UserDropdown extends StatelessWidget {
           value: 'profile',
           child: Text('My profile'),
         ),
+        PopupMenuDivider(),
         PopupMenuItem<String>(
           value: 'product_switch',
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Divider(),
-              Text('Product switch:'),
-              SizedBox(height: 8),
-              Text('Scheduling app'),
-              SizedBox(height: 8,),
-              Text('Invoicing app'),
-              Divider(),
-            ],
-          ),
+          child: Text('Product switch:'),
         ),
+        PopupMenuItem<String>(
+          value: 'scheduling_app',
+          child: Text('Scheduling app'),
+        ),
+        PopupMenuItem<String>(
+          value: 'invoicing_app',
+          child: Text('Invoicing app'),
+        ),
+        PopupMenuDivider(),
         PopupMenuItem<String>(
           value: 'logout',
           child: Text(

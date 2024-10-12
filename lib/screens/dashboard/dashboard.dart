@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:math';
+import 'package:reservon/utilities/exports.dart';
 
 void main() => runApp(const MyApp());
 
@@ -42,56 +43,7 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('Dashboard', style: TextStyle(fontSize: 18.sp)),
-        actions: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              IconButton(
-                icon: Icon(Icons.notifications, size: 24.sp),
-                onPressed: () {},
-              ),
-              Positioned(
-                right: 8.w,
-                top: 8.h,
-                child: Container(
-                  padding: EdgeInsets.all(2.w),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  constraints: BoxConstraints(
-                    minWidth: 16.w,
-                    minHeight: 16.h,
-                  ),
-                  child: Text(
-                    '5',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10.sp,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          CircleAvatar(
-            radius: 16.r,
-            backgroundImage: const NetworkImage('https://example.com/avatar.jpg'),
-          ),
-          IconButton(
-            icon: Icon(Icons.arrow_drop_down, size: 24.sp),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.language, size: 24.sp),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      appBar: DashboardAppBar(),
       body: Container(
         color: Colors.white,
         child: SingleChildScrollView(
@@ -268,9 +220,19 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: const DashbNavbar(),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add, size: 24.sp),
+        // autofocus: true,
+        // // elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50), // Circular shape
+          side: BorderSide(
+            color: grey1, // Border color
+            width: 6, // Border width
+          ),
+        ),
+        backgroundColor: primaryColor,
+        child: Icon(Icons.more_vert_outlined, size: 24.sp, color: Colors.white,),
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -544,7 +506,7 @@ class ScheduleLineChart extends StatelessWidget {
               ],
               lineTouchData: LineTouchData(
                 touchTooltipData: LineTouchTooltipData(
-                  tooltipBgColor: const Color(0xFF0B3558),
+                  // tooltipBgColor: const Color(0xFF0B3558),
                   tooltipMargin: 10, // Adjust this value for spacing from the touch point
                   getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
                     return touchedBarSpots.map((barSpot) {

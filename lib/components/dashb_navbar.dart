@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:reservon/utilities/exports.dart';
+
 
 class DashbNavbar extends StatefulWidget {
   const DashbNavbar({super.key});
@@ -8,32 +10,43 @@ class DashbNavbar extends StatefulWidget {
 }
 
 class _DashbNavbarState extends State<DashbNavbar> {
-  @override
-  Widget build(BuildContext context) {
-    return NavigationBar(
-      destinations: [NavLabel(),NavLabel(),NavLabel(),NavLabel()],
+  int selectedIndex = 0; // Track the currently selected index
 
-    );
+  void onItemSelected(int index) {
+    setState(() {
+      selectedIndex = index; // Update the selected index
+    });
+    // You can add navigation logic here if needed
   }
-}
 
-
-class NavLabel extends StatefulWidget {
-  const NavLabel({super.key});
-
-  @override
-  State<NavLabel> createState() => _NavLabelState();
-}
-
-class _NavLabelState extends State<NavLabel> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(Icons.space_dashboard_outlined),
-        Text('Dashboard')
+    return BottomNavigationBar(
+      backgroundColor: Colors.white,
+      type: BottomNavigationBarType.fixed,
+      currentIndex: selectedIndex,
+      onTap: onItemSelected,
+      selectedItemColor: primaryColor,
+      unselectedItemColor: grey3,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.space_dashboard_outlined),
+          label: 'Dashboard',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.edit_calendar_outlined),
+          label: 'Scheduling',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.tag),
+          label: 'Services',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.swap_horiz),
+          label: 'Booking site',
+        ),
       ],
     );
   }
