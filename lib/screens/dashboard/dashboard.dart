@@ -59,7 +59,7 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
                             scrollDirection: Axis.horizontal,
                             children: [
                               SizedBox(
-                                width: 400.w, // Width of two cards plus spacing
+                                width: 320.w, // Width of two cards plus spacing
                                 child: Column(
                                   children: [
                                     Row(
