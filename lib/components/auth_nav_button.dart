@@ -7,10 +7,10 @@ class AuthNavButton extends StatelessWidget {
   final VoidCallback onTap; // Function to call on tap
 
   const AuthNavButton({
-    Key? key,
+    super.key,
     required this.buttonText, // Make buttonText required
     required this.onTap, // Make onTap required
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,12 @@ class AuthNavButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
         decoration: BoxDecoration(
-          color: primaryColor,
+          color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(32.r),
         ),
         child: Text(
           buttonText, // Use the passed button text
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

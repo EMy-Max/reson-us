@@ -6,13 +6,13 @@ class PasswordReset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthProcessAppBar(),
+              const AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
@@ -32,20 +32,20 @@ class PasswordReset extends StatelessWidget {
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),
-                    Text(
+                    const Text(
                       'Provide your login details to continue',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
@@ -55,15 +55,15 @@ class PasswordReset extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text("Remember password?", style: TextStyle(color: primaryColor),),
+                            const Text("Remember password?", style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            const Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PasswordReset2()),
+                            MaterialPageRoute(builder: (context) => const PasswordReset2()),
                           );
                         },),
                       ],
@@ -72,19 +72,19 @@ class PasswordReset extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GoogleSignUpButton(),
+                        const GoogleSignUpButton(),
                         SizedBox(width: 20.w),
-                        AppleSignUpButton(),
+                        const AppleSignUpButton(),
                       ],
                     ),
                   ],
                 ),
               ),
-              AuthBottomCard()
+              const AuthBottomCard()
             ],
           ),
         ),
       ),
-    );;
+    );
   }
 }

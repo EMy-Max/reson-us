@@ -79,8 +79,7 @@ class ServiceSelectionState extends State<ServiceSelection> {
         onPressed: isAnyServiceSelected ? () {
           // Trigger the dialog to open
           showPlanConfirmationDialog(context);
-        }
-            : null,
+        } : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: isAnyServiceSelected ? Colors.blue : AppColors.grey2,
           shape: RoundedRectangleBorder(
@@ -131,7 +130,6 @@ class ServiceSelectionState extends State<ServiceSelection> {
 
   Widget _buildHeader() {
     return Container(
-      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 22.h),
       margin: EdgeInsets.symmetric(horizontal: 5.w),
       decoration: BoxDecoration(
@@ -164,7 +162,6 @@ class ServiceSelectionState extends State<ServiceSelection> {
     );
   }
 
-
   Widget _buildServiceCard(String title, bool isSelected, Function(bool) onSelected, int index) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5.w),
@@ -185,7 +182,11 @@ class ServiceSelectionState extends State<ServiceSelection> {
             width: double.infinity,
             child: Text(
               title,
-              style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w300, color: Colors.white),
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w300,
+                color: Colors.white,
+              ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -193,18 +194,18 @@ class ServiceSelectionState extends State<ServiceSelection> {
             padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.h),
             color: Colors.white,
             child: SizedBox(
-              height: 500.h,
+              height: MediaQuery.of(context).size.height * .4, // Adjusted height
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 2,
-                separatorBuilder: (context, index) => SizedBox(width: 10.w),
+                separatorBuilder: (context, index) => SizedBox(width: 10.w), // Space between items
                 itemBuilder: (context, planIndex) {
                   return SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.7,
+                    width: MediaQuery.of(context).size.width * .7,
                     child: _buildPlanCard(
                       planIndex == 0 ? 'Basic' : 'Premium',
                       planIndex == 0 ? isBasicSelected[index] : isPremiumSelected[index],
-                          (value) {
+                      (value) {
                         setState(() {
                           if (planIndex == 0) {
                             isBasicSelected[index] = value;
@@ -233,140 +234,70 @@ class ServiceSelectionState extends State<ServiceSelection> {
   }
 
   Widget _buildPlanCard(String planType, bool isSelected, Function(bool) onSelected) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFFEEF4FE) : AppColors.grey1,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.all(16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: isSelected ? const Color(0xFFCCE0FD) : Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  padding: EdgeInsets.all(16.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: isSelected ? const Color(0xFFFAE199) : AppColors.grey1,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        padding: EdgeInsets.all(7.w),
-                        child: Text(
-                          planType,
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
-                            color: isSelected ? Colors.black : Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          onSelected(!isSelected);
-                        },
-                        child: Icon(
-                          Icons.check_circle,
-                          size: 24,
-                          color: isSelected ? Colors.blue : Colors.grey[300],
-                        ),
-                      ),
-                    ],
-                  ),
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: isSelected ? const Color(0xFFEEF4FE) : AppColors.grey1,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: EdgeInsets.all(16.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: isSelected ? const Color(0xFFCCE0FD) : Colors.white,
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                SizedBox(height: 10.h),
-                Container(
-                  padding: EdgeInsets.all(16.w),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const CircleAvatar(
-                            radius: 16,
-                            backgroundColor: Color(0xFFFEFAEE),
-                            child: Text(
-                              '₦',
-                              style: TextStyle(
-                                fontSize: 24,
-                                color: Color(0xFFF4B402),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 5.w),
-                          Text(
-                            planType == 'Basic' ? '0  ' : '50,000 ',
+                padding: EdgeInsets.all(16.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: isSelected ? const Color(0xFFFAE199) : AppColors.grey1,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding: EdgeInsets.all(7.w),
+                      child: Text(
+                        planType,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                          color: isSelected ? Colors.black : Colors.grey[600],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        onSelected(!isSelected);
+                      },
+                      child: Icon(
+                        Icons.check_circle,
+                        size: 24,
+                        color: isSelected ? Colors.blue : Colors.grey[300],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10.h),
+              Container(
+                padding: EdgeInsets.all(16.w),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CircleAvatar(
+                          radius: 16,
+                          backgroundColor: Color(0xFFFEFAEE),
+                          child: Text(
+                            '₦',
                             style: TextStyle(
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Flexible(
-                            child: Text(
-                              planType == 'Basic' ? 'For 20 schedules' : 'Per Month',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: AppColors.grey3,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Divider(
-                        color: AppColors.grey2,
-                        thickness: 1,
-                        height: 20,
-                      ),
-                      SizedBox(height: 10.h),
-                      _buildFeatureItem('Lorem ipsum dolor lorem', true),
-                      SizedBox(height: 10.h),
-                      _buildFeatureItem('Lorem ipsum dolor lorem', true),
-                      SizedBox(height: 10.h),
-                      _buildFeatureItem('Lorem ipsum dolor', true),
-                      SizedBox(height: 10.h),
-                      _buildFeatureItem('Lorem ipsum', planType == 'Premium'),
-                      SizedBox(height: 10.h),
-                      _buildFeatureItem('Lorem ipsum dolor lorem', planType == 'Premium'),
-                      SizedBox(height: 10.h),
-                      _buildFeatureItem('Lorem ipsum dolor lorem', planType == 'Premium'),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFeatureItem(String text, bool isIncluded) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5.h),
-      child: Row(
-        children: [
-          Icon(
-            isIncluded ? Icons.check : Icons.close,
-            color: isIncluded ? Colors.blue : Colors.red,
-            size: 20.sp,
-          ),
-          SizedBox(width: 10.w),
-          Text(text, style: TextStyle(fontSize: 14.sp)),
-        ],
-      ),
-    );
-  }
-}
+                              fontSize

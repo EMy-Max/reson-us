@@ -1,34 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'dart:math';
 import 'package:reservon/utilities/exports.dart';
-
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812), // Design size based on iPhone X
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Dashboard App',
-          // theme: ThemeData(
-          //   primarySwatch: Colors.blue,
-          //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          // ),
-          home: CombinedDashboardScreen(),
-        );
-      },
-    );
-  }
-}
 
 class CombinedDashboardScreen extends StatefulWidget {
   const CombinedDashboardScreen({super.key});
@@ -215,23 +185,22 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
 
                   ),
                 ),
+                SizedBox(height:20.h),
               ],
             ),
           ),
         ),
       ),
-      bottomNavigationBar: const DashbNavbar(),
+      bottomNavigationBar: DashbNavbar(),
       floatingActionButton: FloatingActionButton(
-        // autofocus: true,
-        // // elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50), // Circular shape
           side: BorderSide(
-            color: grey1, // Border color
+            color: AppColors.grey1, // Border color
             width: 6, // Border width
           ),
         ),
-        backgroundColor: primaryColor,
+        backgroundColor: AppColors.primaryColor,
         child: Icon(Icons.more_vert_outlined, size: 24.sp, color: Colors.white,),
         onPressed: () {},
       ),

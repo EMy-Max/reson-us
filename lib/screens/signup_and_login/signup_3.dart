@@ -6,7 +6,7 @@ class Signup3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -39,7 +39,7 @@ class Signup3 extends StatelessWidget {
                     SizedBox(height: 10),
                     Text(
                       'Let all payment made from your customers go to your bank account directly!',
-                      style: TextStyle(color: grey3),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30),
                     BusinessTypeDropdown(),
@@ -47,12 +47,12 @@ class Signup3 extends StatelessWidget {
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Account number',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
@@ -60,12 +60,12 @@ class Signup3 extends StatelessWidget {
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Account name',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
                         ),
                       ),
                     ),
@@ -75,9 +75,9 @@ class Signup3 extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text('Got an account?', style: TextStyle(color: primaryColor),),
+                            Text('Got an account?', style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Sign Up', onTap: () {

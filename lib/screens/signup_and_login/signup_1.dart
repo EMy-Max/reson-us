@@ -6,13 +6,13 @@ class Signup1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey1,
+      backgroundColor: AppColors.grey1,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                AuthProcessAppBar(),
+                const AuthProcessAppBar(),
               SizedBox(
                 height: 30.h, // Adapts to screen size
               ),
@@ -27,11 +27,6 @@ class Signup1 extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width:250.w,
-                      child: CustomProgressIndicator(totalSteps: 3, currentStep: 1,),
-                    ),
-                    SizedBox(height: 20.h,),
                     Text(
                       'Sign up to $brandName!',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
@@ -39,18 +34,18 @@ class Signup1 extends StatelessWidget {
                     SizedBox(height: 10.h),
                     Text(
                       'To experience the ultimate solution for managing appointments and invoices.',
-                      style: TextStyle(color: grey3, fontSize: 14.sp,),
+                      style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
                     TextField(
                       decoration: InputDecoration(
                         labelText: 'Enter your email',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
                       ),
                     ),
@@ -59,12 +54,12 @@ class Signup1 extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Create a password',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
                         suffixIcon: Icon(Icons.visibility_off),
                       ),
@@ -74,12 +69,12 @@ class Signup1 extends StatelessWidget {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Confirm password',
-                        labelStyle: TextStyle(color: grey3),
+                        labelStyle: TextStyle(color: AppColors.grey3),
                         floatingLabelBehavior: FloatingLabelBehavior.auto,
                         contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
                         border: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:grey3, width: 2.0.w),
+                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
                         ),
                         suffixIcon: Icon(Icons.visibility_off),
                       ),
@@ -92,9 +87,9 @@ class Signup1 extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text('Got an account?', style: TextStyle(color: primaryColor),),
+                            Text('Got an account?', style: TextStyle(color: AppColors.primaryColor),),
                             SizedBox(width: 5.w,),
-                            Text('Login', style: TextStyle(color: yellowWarningD,fontWeight: FontWeight.w500),),
+                            Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {

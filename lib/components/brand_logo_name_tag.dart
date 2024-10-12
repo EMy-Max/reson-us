@@ -7,7 +7,7 @@ class BrandLogoNameTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       children: [
         Image(image:AssetImage('images/logo.png')),
         SizedBox(width: 8),
@@ -22,7 +22,7 @@ class BrandLogoNameTag extends StatelessWidget {
                 height:0.8,
                 letterSpacing: 2.0,
                 // fontWeight: FontWeight.bold,
-                color: primaryColor,
+                color: AppColors.primaryColor,
               ),
             ),
             Text(
@@ -30,7 +30,7 @@ class BrandLogoNameTag extends StatelessWidget {
               style: TextStyle(
                 fontSize: 10,
                 // fontWeight: FontWeight.bold,
-                color: primaryColor,
+                color: AppColors.primaryColor,
               ),
             ),
           ],

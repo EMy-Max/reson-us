@@ -26,8 +26,8 @@ class _DashbNavbarState extends State<DashbNavbar> {
       type: BottomNavigationBarType.fixed,
       currentIndex: selectedIndex,
       onTap: onItemSelected,
-      selectedItemColor: primaryColor,
-      unselectedItemColor: grey3,
+      selectedItemColor: AppColors.primaryColor,
+      unselectedItemColor: AppColors.grey3,
       showSelectedLabels: true,
       showUnselectedLabels: true,
       items: [

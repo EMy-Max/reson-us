@@ -8,7 +8,7 @@ class AuthBottomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0XFFEEF4FE),
+      color: const Color(0XFFEEF4FE),
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: 32.h, horizontal: 16.w),
       child: Column(
@@ -17,7 +17,7 @@ class AuthBottomCard extends StatelessWidget {
           Container(
             width: double.infinity,
               alignment: Alignment.center,
-              child: Image(image: AssetImage('images/calender image.png'))),
+              child: const Image(image: AssetImage('images/calender image.png'))),
           SizedBox(height: 20.h,),
           Text('Let your clients schedule with no hassle',
             style: TextStyle(
@@ -33,7 +33,7 @@ class AuthBottomCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20.h,),
-          Image(image: AssetImage('images/auth bottom frame.png'))
+          const Image(image: AssetImage('images/auth bottom frame.png'))
         ],
       ),
     );

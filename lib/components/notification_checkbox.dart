@@ -1,16 +1,18 @@
 import 'package:reservon/utilities/exports.dart';
 
 class NotificationCheckbox extends StatefulWidget {
+  const NotificationCheckbox({super.key});
+
   @override
-  _NotificationCheckboxState createState() => _NotificationCheckboxState();
+  NotificationCheckboxState createState() => NotificationCheckboxState();
 }
 
-class _NotificationCheckboxState extends State<NotificationCheckbox> {
+class NotificationCheckboxState extends State<NotificationCheckbox> {
   bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Row(
         children: [
@@ -22,16 +24,16 @@ class _NotificationCheckboxState extends State<NotificationCheckbox> {
               });
             },
             autofocus: true,
-            checkColor: isChecked? Colors.white : grey3,
-            activeColor: primaryColor,
+            checkColor: isChecked? Colors.white : AppColors.grey3,
+            activeColor: AppColors.primaryColor,
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.r),side: BorderSide(color: grey2)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.r),side: const BorderSide(color: AppColors.grey2)),
           ),
           SizedBox(width: 5.w),
           Flexible( // Use Flexible instead of Expanded
             child: Text(
               'Notify me on new offers, product updates and more exclusive stuff.',
-              style: TextStyle(fontSize: 10.sp, color: grey3),
+              style: TextStyle(fontSize: 10.sp, color: AppColors.grey3),
             ),
           ),
         ],
