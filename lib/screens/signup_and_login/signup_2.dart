@@ -5,6 +5,10 @@ class Signup2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // Access the SignupProvider instance
+    final signupProvider = Provider.of<SignupProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.grey1,
       body: SafeArea(
@@ -42,36 +46,22 @@ class Signup2 extends StatelessWidget {
                       style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Your name',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                      ),
+                    // Use controller from provider for name
+                    CustomTextField(
+                      label: 'Your name',
+                      controller: signupProvider.nameController,
                     ),
                     SizedBox(height: 20.h),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Business name',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
-                        ),
-                      ),
+                    // Use controller from provider for business name
+                    CustomTextField(
+                      label: 'Business name',
+                      controller: signupProvider.businessNameController,
                     ),
                     SizedBox(height: 20.h),
-                    BusinessTypeDropdown(),
+                    CustomDropdown(dropdownList: ['Barber','Designer','Technician','other', 'Example'], hint: 'Business type',),
                     SizedBox(height: 20.h),
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                      padding: EdgeInsets.symmetric(vertical: 8.h,),
                       width: double.infinity,
                       alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
@@ -129,4 +119,3 @@ class Signup2 extends StatelessWidget {
     );
   }
 }
-

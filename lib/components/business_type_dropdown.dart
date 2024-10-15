@@ -1,28 +1,35 @@
 import 'package:reservon/utilities/exports.dart';
 
-class BusinessTypeDropdown extends StatefulWidget {
-  const BusinessTypeDropdown({super.key});
+class CustomDropdown extends StatefulWidget {
+  final List<String> dropdownList; // Accept a list of business types
+  final String? initialValue; // Optionally accept an initial value
+  final String hint; // Accept a hint text
+
+  const CustomDropdown({
+    Key? key,
+    required this.dropdownList,
+    this.initialValue,
+    required this.hint, // Make hint required
+  }) : super(key: key);
 
   @override
-  BusinessTypeDropdownState createState() => BusinessTypeDropdownState();
+  CustomDropdownState createState() => CustomDropdownState();
 }
 
-class BusinessTypeDropdownState extends State<BusinessTypeDropdown> {
-  String? _selectedBusinessType; // Initialize as null
+class CustomDropdownState extends State<CustomDropdown> {
+  String? _selectedBusinessType;
 
-  final List<String> _businessTypes = [
-    'Baker',
-    'Makeup artist',
-    'Example',
-    'Value',
-    'Profession',
-    'Others',
-  ];
+  @override
+  void initState() {
+    super.initState();
+    // Initialize with the provided initial value if any
+    _selectedBusinessType = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity, // Set a fixed width to match the image
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.r),
@@ -37,20 +44,20 @@ class BusinessTypeDropdownState extends State<BusinessTypeDropdown> {
       child: DropdownButtonFormField<String>(
         value: _selectedBusinessType,
         icon: const Icon(Icons.arrow_drop_up_sharp),
-        hint: const Text('Business type'),
+        hint: Text(widget.hint), // Use the hint parameter here
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
             borderSide: const BorderSide(color: AppColors.grey3),
           ),
-          contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+          contentPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 8.h),
         ),
         onChanged: (String? newValue) {
           setState(() {
             _selectedBusinessType = newValue;
           });
         },
-        items: _businessTypes.map<DropdownMenuItem<String>>((String value) {
+        items: widget.dropdownList.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(value),

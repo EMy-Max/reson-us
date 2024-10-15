@@ -17,6 +17,10 @@ class ServiceSelectionState extends State<ServiceSelection> {
 
   @override
   Widget build(BuildContext context) {
+
+    // Access the ServiceSelectionProvider instance
+    final serviceProvider = Provider.of<ServiceSelectionProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -47,15 +51,11 @@ class ServiceSelectionState extends State<ServiceSelection> {
                   ),
                   child: Column(
                     children: [
-                      _buildServiceCard('Scheduling service', isSchedulingSelected, (value) {
-                        setState(() {
-                          isSchedulingSelected = value;
-                        });
+                      _buildServiceCard('Scheduling service', serviceProvider.isSchedulingSelected, (value) {
+                        serviceProvider.toggleScheduling(value);
                       }, 0),
-                      _buildServiceCard('Invoicing service', isInvoicingSelected, (value) {
-                        setState(() {
-                          isInvoicingSelected = value;
-                        });
+                      _buildServiceCard('Invoicing service', serviceProvider.isInvoicingSelected, (value) {
+                        serviceProvider.toggleInvoicing(value);
                       }, 1),
                       SizedBox(height: 5.h),
                       _buildContinueButton(),
@@ -72,6 +72,12 @@ class ServiceSelectionState extends State<ServiceSelection> {
     );
   }
 
+
+
+
+
+
+  ///// CONTINUE BUTTON
   Widget _buildContinueButton() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
@@ -100,6 +106,11 @@ class ServiceSelectionState extends State<ServiceSelection> {
     );
   }
 
+
+
+
+
+/////SHOW CONFIRMATION DIALOGUE
   void showPlanConfirmationDialog(BuildContext context) {
     List<ServicePlan> selectedPlans = [];
 
@@ -129,6 +140,13 @@ class ServiceSelectionState extends State<ServiceSelection> {
     );
   }
 
+
+
+
+
+
+
+  /////BUILD HEADER
   Widget _buildHeader() {
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -165,6 +183,10 @@ class ServiceSelectionState extends State<ServiceSelection> {
   }
 
 
+
+
+
+  //////SERVICE CARD
   Widget _buildServiceCard(String title, bool isSelected, Function(bool) onSelected, int index) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5.w),
@@ -232,6 +254,12 @@ class ServiceSelectionState extends State<ServiceSelection> {
     );
   }
 
+
+
+
+
+
+/////PLAN CARD
   Widget _buildPlanCard(String planType, bool isSelected, Function(bool) onSelected) {
     return SingleChildScrollView(
       child: Column(
@@ -353,6 +381,11 @@ class ServiceSelectionState extends State<ServiceSelection> {
     );
   }
 
+
+
+
+
+  /////FEATURE ITEM
   Widget _buildFeatureItem(String text, bool isIncluded) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5.h),

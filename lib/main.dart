@@ -1,9 +1,18 @@
-import 'package:reservon/screens/service_selection/service_selection.dart';
 import 'package:reservon/utilities/exports.dart';
-import 'package:reservon/screens/dashboard/dashboard.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => SignupProvider()),
+        ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => PasswordResetProvider()),
+        ChangeNotifierProvider(create: (_) => ServiceSelectionProvider()),
+        // Add more providers here as needed
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +34,7 @@ class MyApp extends StatelessWidget {
               fontFamily: 'static',
           ),
           //home: const CombinedDashboardScreen(),
-          home: CombinedDashboardScreen(),
+          home: ServiceSelection(),
         );
       },
     );

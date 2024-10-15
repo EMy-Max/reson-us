@@ -5,6 +5,9 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final loginProvider = Provider.of<LoginProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.grey1,
       body: SafeArea(
@@ -37,51 +40,51 @@ class Login extends StatelessWidget {
                       style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    const TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
-                        ),
-                      ),
+                    CustomTextField(
+                      label: 'Email',
+                      controller: loginProvider.emailController,
                     ),
                     SizedBox(height: 15.h),
-                    TextField(
+                    // Use CustomTextField for password input
+                    CustomTextField(
+                      label: 'Password',
+                      controller: loginProvider.passwordController,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: const TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: const OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: const Icon(Icons.visibility_off),
-                      ),
                     ),
                     SizedBox(height: 10.h),
-                    Row(
-                      children: [
-                        Text('Forgot Password?', style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp),),
-                        SizedBox(width: 5.w,),
-                        Text('Reset', style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp, fontWeight: FontWeight.w500),),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PasswordReset()), // Navigate to PasswordReset
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          Text('Forgot Password?', style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp),),
+                          SizedBox(width: 5.w,),
+                          Text('Reset', style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp, fontWeight: FontWeight.w500),),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 30.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            const Text("Don't have an account?", style: TextStyle(color: AppColors.primaryColor),),
-                            SizedBox(width: 5.w,),
-                            const Text('Sign up', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Signup1()), // Navigate to PasswordReset
+                            );
+                          },
+                          child: Row(
+                            children: [
+                               Text("Don't have an account?", style: TextStyle(color: AppColors.primaryColor, fontSize: 10.sp),),
+                              SizedBox(width: 5.w,),
+                               Text('Sign up', style: TextStyle(color: AppColors.yellowWarningD,fontSize: 10.sp,fontWeight: FontWeight.w500),),
+                            ],
+                          ),
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {
 

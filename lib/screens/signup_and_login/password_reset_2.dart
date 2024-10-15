@@ -5,6 +5,8 @@ class PasswordReset2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final passwordResetProvider = Provider.of<PasswordResetProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.grey1,
       body: SafeArea(
@@ -37,34 +39,17 @@ class PasswordReset2 extends StatelessWidget {
                       style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    TextField(
+                    CustomTextField(
+                      label: 'Create a password',
+                      controller: passwordResetProvider.newPasswordController,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Create a password',
-                        labelStyle: const TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: const OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: const Icon(Icons.visibility_off),
-                      ),
                     ),
                     SizedBox(height: 20.h),
-                    TextField(
+                    // Use CustomTextField for confirm password input
+                    CustomTextField(
+                      label: 'Confirm password',
+                      controller: passwordResetProvider.confirmPasswordController,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm password',
-                        labelStyle: const TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: const OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: const Icon(Icons.visibility_off),
-                      ),
                     ),
                     SizedBox(height: 30.h),
                     Row(

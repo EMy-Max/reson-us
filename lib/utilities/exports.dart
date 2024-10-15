@@ -24,6 +24,8 @@ export 'package:reservon/components/notification_checkbox.dart';
 export 'package:reservon/components/progress_bar1.dart';
 export 'package:reservon/components/dashb_appbar.dart';
 export 'package:reservon/components/dashb_navbar.dart';
+export 'package:reservon/components/custom_textfield.dart';
+// export 'package:reservon/components/serviceselection_widgets.dart';
 
 
 
@@ -31,6 +33,7 @@ export 'package:reservon/components/dashb_navbar.dart';
 export 'package:reservon/screens/signup_and_login/signup_1.dart';
 export 'package:reservon/screens/service_selection/confirm_plan.dart';
 export 'package:reservon/screens/service_selection/success_dialog.dart';
+export 'package:reservon/screens/service_selection/service_selection.dart';
 export 'package:flutter/services.dart';
 export 'package:reservon/screens/signup_and_login/signup_2.dart';
 export 'package:reservon/screens/signup_and_login/signup_3.dart';
@@ -39,3 +42,11 @@ export 'package:reservon/screens/signup_and_login/password_reset_1.dart';
 export 'package:reservon/screens/signup_and_login/password_reset_2.dart';
 export 'package:reservon/screens/signup_and_login/reset_success_modal.dart';
 export 'package:reservon/screens/dashboard/dashboard.dart';
+
+
+
+//providers exports
+export 'package:reservon/providers/signup_provider.dart';
+export 'package:reservon/providers/login_provider.dart';
+export 'package:reservon/providers/resetpassword_provider.dart';
+export 'package:reservon/providers/serviceselection_provider.dart';

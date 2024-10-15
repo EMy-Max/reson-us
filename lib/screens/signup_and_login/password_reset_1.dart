@@ -5,6 +5,9 @@ class PasswordReset extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final passwordResetProvider = Provider.of<PasswordResetProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.grey1,
       body: SafeArea(
@@ -37,28 +40,28 @@ class PasswordReset extends StatelessWidget {
                       style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    const TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
-                        ),
-                      ),
+                    CustomTextField(
+                      label: 'Email',
+                      controller: passwordResetProvider.emailController,
                     ),
                     SizedBox(height: 30.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          children: [
-                            const Text("Remember password?", style: TextStyle(color: AppColors.primaryColor),),
-                            SizedBox(width: 5.w,),
-                            const Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()), // Navigate to PasswordReset
+                            );
+                          },
+                          child: Row(
+                            children: [
+                              Text("Remember password?", style: TextStyle(fontSize: 10.sp, color: AppColors.primaryColor),),
+                              SizedBox(width: 5.w,),
+                              Text('Login', style: TextStyle(fontSize: 10.sp,color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
+                            ],
+                          ),
                         ),
                         AuthNavButton(buttonText: 'Continue', onTap: () {
                           Navigator.push(

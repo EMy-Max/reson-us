@@ -5,6 +5,9 @@ class Signup3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final signupProvider = Provider.of<SignupProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.grey1,
       body: SafeArea(
@@ -42,32 +45,17 @@ class Signup3 extends StatelessWidget {
                       style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30),
-                    BusinessTypeDropdown(),
+                    CustomDropdown(dropdownList: ['Zenith Bank', 'First Bank', 'Ecobank', 'Guarantee Trust Bank', 'Example Bank'], hint: 'Select your bank',),
                     SizedBox(height: 20.h),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Account number',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
-                        ),
-                      ),
+                    CustomTextField(
+                      label: 'Account number',
+                      controller: signupProvider.accountNumberController,
                     ),
                     SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Account name',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0),
-                        ),
-                      ),
+                    // Use controller from provider for account name
+                    CustomTextField(
+                      label: 'Account name',
+                      controller: signupProvider.accountNameController,
                     ),
                     SizedBox(height: 40),
                     Row(

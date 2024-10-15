@@ -5,6 +5,10 @@ class Signup1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // Access the SignupProvider instance
+    final signupProvider = Provider.of<SignupProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.grey1,
       body: SafeArea(
@@ -27,6 +31,10 @@ class Signup1 extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      width:250.w,
+                      child: CustomProgressIndicator(totalSteps: 3, currentStep: 1,),
+                    ),
                     Text(
                       'Sign up to $brandName!',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
@@ -37,47 +45,21 @@ class Signup1 extends StatelessWidget {
                       style: TextStyle(color: AppColors.grey3),
                     ),
                     SizedBox(height: 30.h),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: 'Enter your email',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                      ),
+                    CustomTextField(
+                      label: 'Enter your email',
+                      controller: signupProvider.emailController,
                     ),
                     SizedBox(height: 20.h),
-                    TextField(
+                    CustomTextField(
+                      label: 'Create a password',
+                      controller: signupProvider.passwordController,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Create a password',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: Icon(Icons.visibility_off),
-                      ),
                     ),
                     SizedBox(height: 20.h),
-                    TextField(
+                    CustomTextField(
+                      label: 'Confirm password',
+                      controller: signupProvider.confirmPasswordController,
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm password',
-                        labelStyle: TextStyle(color: AppColors.grey3),
-                        floatingLabelBehavior: FloatingLabelBehavior.auto,
-                        contentPadding: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.grey3, width: 2.0.w),
-                        ),
-                        suffixIcon: Icon(Icons.visibility_off),
-                      ),
                     ),
                     SizedBox(height: 20.h),
                     NotificationCheckbox(),
@@ -121,6 +103,3 @@ class Signup1 extends StatelessWidget {
     );
   }
 }
-
-
-
