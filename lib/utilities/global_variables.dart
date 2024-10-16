@@ -24,6 +24,7 @@ class AppColors {
 
 }
 
-// Brand Information
- const String brandName = 'Reservon';
- const String brandTag = 'Scheduling & Invoicing made easy!';
+class AppText {
+  static const String brandName = 'Reservon';
+  static const String brandTag = 'Scheduling & Invoicing made easy!';
+}

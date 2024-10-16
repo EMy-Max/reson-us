@@ -36,7 +36,7 @@ class Signup1 extends StatelessWidget {
                       child: CustomProgressIndicator(totalSteps: 3, currentStep: 1,),
                     ),
                     Text(
-                      'Sign up to $brandName!',
+                      'Sign up to $AppText.brandName!',
                       style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),

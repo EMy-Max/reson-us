@@ -26,6 +26,7 @@ export 'package:reservon/components/dashb_appbar.dart';
 export 'package:reservon/components/dashb_navbar.dart';
 export 'package:reservon/components/custom_textfield.dart';
 // export 'package:reservon/components/serviceselection_widgets.dart';
+export 'package:reservon/components/appointment_card.dart';
 
 
 

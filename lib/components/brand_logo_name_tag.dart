@@ -16,7 +16,7 @@ class BrandLogoNameTag extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              brandName,
+              AppText.brandName,
               style: TextStyle(
                 fontSize: 35,
                 height:0.8,
@@ -26,7 +26,7 @@ class BrandLogoNameTag extends StatelessWidget {
               ),
             ),
             Text(
-              brandTag,
+              AppText.brandTag,
               style: TextStyle(
                 fontSize: 10,
                 // fontWeight: FontWeight.bold,

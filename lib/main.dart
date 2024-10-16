@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
               fontFamily: 'static',
           ),
           //home: const CombinedDashboardScreen(),
-          home: ServiceSelection(),
+          home: CombinedDashboardScreen(),
         );
       },
     );

@@ -13,140 +13,140 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: DashboardAppBar(),
-      body: Container(
-        color: Colors.white,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.r),
-                    boxShadow:[
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        spreadRadius: 0,
-                        blurRadius: 0.5,
-                        offset: const Offset(0, 3),
-                      )
-                    ] ,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft, // Aligns the text to the left
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 8.w, top: 0, bottom: 0, right: 0),
-                            child: Text(
-                              'Appointments',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 16.h),
-                        SizedBox(
-                          height: 260.h, // Adjusted height to accommodate two rows
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              SizedBox(
-                                width: 320.w, // Width of two cards plus spacing
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        const Expanded(
-                                          child: AppointmentCard(
-                                            title: 'Upcoming',
-                                            count: 12,
-                                            subtitle: 'Today',
-                                            color: Color(0xFFFEFAEE),
-                                            textColor: Color(0xFF926C01),
-                                            textBoxColor: Color(0xFFFCF0CC),
-                                          ),
-                                        ),
-                                        SizedBox(width: 16.w),
-                                        const Expanded(
-                                          child: AppointmentCard(
-                                            title: 'Done',
-                                            count: 8,
-                                            subtitle: 'Today',
-                                            color: Color(0xFFF0F9F4),
-                                            textColor: Color(0xFF1C8A4C),
-                                            textBoxColor: Color(0xFFD3EEDF),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 16.h),
-                                    Row(
-                                      children: [
-                                        const Expanded(
-                                          child: AppointmentCard(
-                                            title: 'Canceled',
-                                            count: 8,
-                                            subtitle: 'Today',
-                                            color: Color(0xFFFEF1E8),
-                                            textColor: Color(0xFFB51D15),
-                                            textBoxColor: Color(0xFFFCE4D1),
-                                          ),
-                                        ),
-                                        SizedBox(width: 16.w),
-                                        const Expanded(
-                                          child: AppointmentCard(
-                                            title: 'No show',
-                                            count: 2,
-                                            subtitle: 'Today',
-                                            color: Color(0xFFEEF1F3),
-                                            textColor: Color(0xFF04111D),
-                                            textBoxColor: Color(0xFFCED6DD),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              // Additional sets of 2x2 cards can be added here if needed
-                            ],
-                          ),
-                        ),
-                      ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Appointments section
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 0,
+                      blurRadius: 0.5,
+                      offset: const Offset(0, 3),
                     ),
-                  )
-
+                  ],
                 ),
-                SizedBox(height: 20.h),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.r),
-                    boxShadow:[
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        spreadRadius: 0,
-                        blurRadius: 0.5,
-                        offset: const Offset(0, 3),
-                      )
-                    ] ,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
-                          padding: EdgeInsets.only(left: 8.w, top: 0, bottom: 0, right: 0),
+                          padding: EdgeInsets.only(left: 8.w),
+                          child: Text(
+                            'Appointments',
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                      SizedBox(
+                        height: 260.h,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            SizedBox(
+                              width: 400.w,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Expanded(
+                                        child: AppointmentCard(
+                                          title: 'Upcoming',
+                                          count: 12,
+                                          subtitle: 'Today',
+                                          color: Color(0xFFFEFAEE),
+                                          textColor: Color(0xFF926C01),
+                                          textBoxColor: Color(0xFFFCF0CC),
+                                        ),
+                                      ),
+                                      SizedBox(width: 16.w),
+                                      const Expanded(
+                                        child: AppointmentCard(
+                                          title: 'Done',
+                                          count: 8,
+                                          subtitle: 'Today',
+                                          color: Color(0xFFF0F9F4),
+                                          textColor: Color(0xFF1C8A4C),
+                                          textBoxColor: Color(0xFFD3EEDF),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 16.h),
+                                  Row(
+                                    children: [
+                                      const Expanded(
+                                        child: AppointmentCard(
+                                          title: 'Canceled',
+                                          count: 8,
+                                          subtitle: 'Today',
+                                          color: Color(0xFFFEF1E8),
+                                          textColor: Color(0xFFB51D15),
+                                          textBoxColor: Color(0xFFFCE4D1),
+                                        ),
+                                      ),
+                                      SizedBox(width: 16.w),
+                                      const Expanded(
+                                        child: AppointmentCard(
+                                          title: 'No show',
+                                          count: 2,
+                                          subtitle: 'Today',
+                                          color: Color(0xFFEEF1F3),
+                                          textColor: Color(0xFF04111D),
+                                          textBoxColor: Color(0xFFCED6DD),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
+
+              // Schedule flow section
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 0,
+                      blurRadius: 0.5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 8.w),
                           child: Text(
                             'Schedule flow',
                             style: TextStyle(
@@ -175,32 +175,136 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
                           width: 300.w,
                           height: 200.h,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 0.0, right: 0.0, top: 6.0, bottom: 3.0),
+                            padding: const EdgeInsets.only(top: 6.0, bottom: 3.0),
                             child: ScheduleLineChart(selectedPeriod: selectedPeriod),
                           ),
                         ),
                       ),
                     ],
                   ),
+                ),
+              ),
+              SizedBox(height: 20.h),
 
+              // Most booked service section
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 0,
+                      blurRadius: 0.5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: const MostBookedServiceChart(),
+              ),
+              SizedBox(height: 20.h),
+
+              // Customer Timeline section
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 0,
+                      blurRadius: 0.5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Customer timeline',
+                              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              'Today',
+                              style: TextStyle(color: Colors.grey[600], fontSize: 14.sp),
+                            ),
+                          ],
+                        ),
+                      ),
+                      CustomerTimeline(bookings: [
+                        CustomerBooking(
+                          customerName: 'Ade Daniel',
+                          phoneNumber: '07018860969',
+                          serviceType: 'Development',
+                          startTime: '10:45am',
+                          endTime: '11:45am',
+                          duration: '1hr',
+                          status: 'Done',
+                          customerImageUrl: 'https://example.com/avatar1.jpg',
+                        ),
+                        CustomerBooking(
+                          customerName: 'Ade Daniel',
+                          phoneNumber: '07018860969',
+                          serviceType: 'Development',
+                          startTime: '10:45am',
+                          endTime: '11:45am',
+                          duration: '1hr',
+                          status: 'Done',
+                          customerImageUrl: 'https://example.com/avatar1.jpg',
+                        ),
+                        CustomerBooking(
+                          customerName: 'Ade Daniel',
+                          phoneNumber: '07018860969',
+                          serviceType: 'Development',
+                          startTime: '10:45am',
+                          endTime: '11:45am',
+                          duration: '1hr',
+                          status: 'Done',
+                          customerImageUrl: 'https://example.com/avatar1.jpg',
+                        ),
+                        CustomerBooking(
+                          customerName: 'Ade Daniel',
+                          phoneNumber: '07018860969',
+                          serviceType: 'Development',
+                          startTime: '10:45am',
+                          endTime: '11:45am',
+                          duration: '1hr',
+                          status: 'Done',
+                          customerImageUrl: 'https://example.com/avatar1.jpg',
+                        ),
+                        CustomerBooking(
+                          customerName: 'Ade Daniel',
+                          phoneNumber: '07018860969',
+                          serviceType: 'Development',
+                          startTime: '10:45am',
+                          endTime: '11:45am',
+                          duration: '1hr',
+                          status: 'Done',
+                          customerImageUrl: 'https://example.com/avatar1.jpg',
+                        ),
+                      ]),
+                    ],
                   ),
                 ),
-                SizedBox(height:20.h),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
       bottomNavigationBar: DashbNavbar(),
       floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50), // Circular shape
-          side: BorderSide(
-            color: AppColors.grey1, // Border color
-            width: 6, // Border width
-          ),
-        ),
+        shape: CircleBorder(),
         backgroundColor: AppColors.primaryColor,
+        elevation: 10,
+        isExtended: true,
         child: Icon(Icons.more_vert_outlined, size: 24.sp, color: Colors.white,),
         onPressed: () {},
       ),
@@ -210,143 +314,8 @@ class CombinedDashboardScreenState extends State<CombinedDashboardScreen> {
 }
 
 
-///////////////////APPOINTMENT///////////////////
 
-class AppointmentCard extends StatelessWidget {
-  final String title;
-  final int count;
-  final String? subtitle;
-  final Color color;
-  final Color textColor;
-  final Color textBoxColor;
-
-  const AppointmentCard({
-    super.key,
-    required this.title,
-    required this.count,
-    this.subtitle,
-    required this.color,
-    required this.textColor,
-    required this.textBoxColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120.h, // Set the height of the card
-      child: Card(
-        color: color,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.r),
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: textBoxColor,
-                  borderRadius: BorderRadius.all(Radius.circular(20.r)),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 12.w),
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      color: textColor,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    count.toString(),
-                    style: TextStyle(
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  if (subtitle != null)
-                    Text(
-                      subtitle!,
-                      style: TextStyle(
-                        color: const Color(0xFF667085),
-                        fontSize: 12.sp,
-                      ),
-                    ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-//////////SCHEDULE FLOW//////////////////
-
-class PeriodToggleButtons extends StatelessWidget {
-  final String selectedPeriod;
-  final Function(String) onPeriodChanged;
-
-  const PeriodToggleButtons({
-    super.key,
-    required this.selectedPeriod,
-    required this.onPeriodChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //width: 170.w,
-      height: 38.h,
-      decoration: BoxDecoration(
-        color: Color(0xFFEEF1F3),
-        borderRadius: BorderRadius.circular(32),
-      ),
-      padding: const EdgeInsets.all(4),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: ['Daily', 'Weekly', 'Annually'].map((period) {
-          final isSelected = selectedPeriod == period;
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: isSelected ? Color(0xFF0051C4) : Colors.transparent,
-                foregroundColor: isSelected ? Colors.white : Color(0xFF667085),
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-              ),
-              onPressed: () => onPeriodChanged(period),
-              child: Text(
-                period,
-                style: const TextStyle(fontSize: 12),
-              ),
-            ),
-          );
-        }).toList(),
-      ),
-    );
-  }
-}
-
-
+//////////////SCHEDULE FLOW///////////////////
 class ScheduleLineChart extends StatelessWidget {
   final String selectedPeriod;
 
@@ -397,9 +366,10 @@ class ScheduleLineChart extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Padding(
-        padding: const EdgeInsets.only(top: 0.0, left: 0, bottom: 8, right: 8),
+        padding: const EdgeInsets.only(bottom: 8.0),
         child: SizedBox(
-          width: max(MediaQuery.of(context).size.width, data.length * 50.0),
+          height: 300.h,
+          width: max(MediaQuery.of(context).size.width, data.length * 50.w), // Use .w for width calculation
           child: LineChart(
             LineChartData(
               gridData: FlGridData(
@@ -417,15 +387,22 @@ class ScheduleLineChart extends StatelessWidget {
                 leftTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
-                    reservedSize: 30,
+                    reservedSize: 30.w, // Use .w for reserved size
                     getTitlesWidget: (value, meta) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 8, left: 0, bottom: 0, right: 8),
-                        child: Text(
-                          '${value.toInt()}k',
-                          style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                        ),
-                      );
+                      // Only show labels for whole numbers and skip -0.1 and 5.1
+                      if (value % 1 == 0 && value >= 0 && value <= 5) {
+                        return Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 8.h, left: 0, bottom: 0, right: 16.w), // Use .h and .w for padding
+                            child: Text(
+                              value == 0 ? '0' : '${value.toInt()}k',
+                              style: TextStyle(color: Colors.grey[600], fontSize: 12.sp), // Use .sp for font size
+                            ),
+                          ),
+                        );
+                      }
+                      return const SizedBox.shrink(); // Hide labels for non-whole numbers
                     },
                     interval: 1,
                   ),
@@ -433,12 +410,16 @@ class ScheduleLineChart extends StatelessWidget {
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
+                    reservedSize: 30.h,
                     getTitlesWidget: (value, meta) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 8.0, left: 0, bottom: 0, right: 8),
-                        child: Text(
-                          getXAxisLabel(value),
-                          style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                      return Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 8.h, left: 16.w, bottom: 0, right: 8.w), // Use .h and .w for padding
+                          child: Text(
+                            getXAxisLabel(value),
+                            style: TextStyle(color: Colors.grey[600], fontSize: 12.sp), // Use .sp for font size
+                          ),
                         ),
                       );
                     },
@@ -450,28 +431,26 @@ class ScheduleLineChart extends StatelessWidget {
               ),
               borderData: FlBorderData(show: false),
               lineBarsData: [
-              LineChartBarData(
-              spots: data,
-              isCurved: true,
-              color: const Color(0xFF0051C4), // Keep the line color as a solid color
-              barWidth: 1,
-              isStrokeCapRound: true,
-              dotData: FlDotData(show: false),
-              belowBarData: BarAreaData(
-                show: true,
-                gradient: const LinearGradient(
-                  colors: [
-                    Color(0x550051C4),
-                    Color(0x550051C4),
-                    Color(0x55FFFFFF),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
+                LineChartBarData(
+                  spots: data,
+                  isCurved: true,
+                  color: const Color(0xFF0051C4),
+                  barWidth: 1,
+                  isStrokeCapRound: true,
+                  dotData: FlDotData(show: false),
+                  belowBarData: BarAreaData(
+                    show: true,
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0x550051C4),
+                        Color(0x550051C4),
+                        Color(0x55FFFFFF),
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-
-
               ],
               lineTouchData: LineTouchData(
                 touchTooltipData: LineTouchTooltipData(
@@ -481,18 +460,16 @@ class ScheduleLineChart extends StatelessWidget {
                     return touchedBarSpots.map((barSpot) {
                       return LineTooltipItem(
                         '${(barSpot.y * 1000).toStringAsFixed(0)}\n schedules',
-                        const TextStyle(
+                        TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
-                          fontSize: 12,
+                          fontSize: 12.sp, // Use .sp for font size
                           height: 1,
                         ),
                       );
                     }).toList();
                   },
-                  // You can adjust the padding for the tooltip
-                  tooltipPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8), // Adjust the padding if needed
-                  // Specify the alignment for the tooltip
+                  tooltipPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h), // Use .h and .w for padding
                   fitInsideHorizontally: true,
                   fitInsideVertically: true,
                 ),
@@ -501,12 +478,10 @@ class ScheduleLineChart extends StatelessWidget {
                 },
                 handleBuiltInTouches: true,
               ),
-
-
               minX: 0,
               maxX: data.length.toDouble() - 1,
-              minY: 0,
-              maxY: 5,
+              minY: -0.1,
+              maxY: 5.1,
             ),
           ),
         ),
@@ -515,9 +490,428 @@ class ScheduleLineChart extends StatelessWidget {
   }
 }
 
+class PeriodToggleButtons extends StatelessWidget {
+  final String selectedPeriod;
+  final Function(String) onPeriodChanged;
 
+  const PeriodToggleButtons({
+    super.key,
+    required this.selectedPeriod,
+    required this.onPeriodChanged,
+  });
 
-////////////////NAVIGATION BAR////////////////////////////
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 38.h, // Use .h for height
+      decoration: BoxDecoration(
+        color: const Color(0xFFEEF1F3),
+        borderRadius: BorderRadius.circular(32.r), // Use .r for border radius
+      ),
+      padding: EdgeInsets.all(4.h), // Use .h for padding
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: ['Daily', 'Weekly', 'Annually'].map((period) {
+          final isSelected = selectedPeriod == period;
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4.w), // Use .w for padding
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isSelected ? const Color(0xFF0051C4) : Colors.transparent,
+                foregroundColor: isSelected ? Colors.white : const Color(0xFF667085),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.r), // Use .r for border radius
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 6.h), // Use .w and .h for padding
+              ),
+              onPressed: () => onPeriodChanged(period),
+              child: Text(
+                period,
+                style: TextStyle(fontSize: 12.sp), // Use .sp for font size
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+/////////////MOST BOOKED SERVICE//////////////
+class MostBookedServiceChart extends StatelessWidget {
+  const MostBookedServiceChart({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 16.w, top: 16.h, bottom: 8.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Most booked service',
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 16.w),
+                child: Text(
+                  'In the last 30 days',
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    color: Colors.grey[600],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        // Container for "Development: 300"
+        Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: EdgeInsets.only(right: 16.w, top: 20.h), // Use .h and .w for padding
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h), // Use .h and .w for padding
+              decoration: BoxDecoration(
+                color: AppColors.grey1,
+                borderRadius: BorderRadius.circular(16.r),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Development: ',
+                    style: TextStyle(
+                        color: AppColors.grey3,
+                        fontSize: 12.sp
+                    ),
+                  ),
+                  Text(
+                    '300',
+                    style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Padding(
+          padding: EdgeInsets.only(bottom: 8.h, right: 16.w, left: 16.w, top: 0.h),
+          child: SizedBox(
+            height: 200.h,
+            child: BarChart(
+              BarChartData(
+                alignment: BarChartAlignment.spaceAround,
+                maxY: 510,
+                minY: -10,
+                barTouchData: BarTouchData(enabled: false),
+                titlesData: FlTitlesData(
+                  show: true,
+                  bottomTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 30.h,
+                      getTitlesWidget: (value, meta) {
+                        const titles = ['Affro style', 'Name', 'Name', 'Dev'];
+                        return Padding(
+                          padding: EdgeInsets.only(top: 8.h),
+                          child: Text(
+                            titles[value.toInt()],
+                            style: TextStyle(color: AppColors.grey3, fontSize: 12.sp),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  leftTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 40.w,
+                      getTitlesWidget: (value, meta) {
+                        if (value % 100 == 0) {
+                          return Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 8.w),
+                              child: Text(
+                                value.toInt().toString(),
+                                style: TextStyle(color: AppColors.grey3, fontSize: 12.sp),
+                              ),
+                            ),
+                          );
+                        }
+                        return const SizedBox.shrink(); // Hide other labels
+                      },
+                    ),
+                  ),
+                  topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                ),
+                gridData: FlGridData(
+                  show: true,
+                  drawVerticalLine: false,
+                  horizontalInterval: 100,
+                  getDrawingHorizontalLine: (value) => FlLine(
+                    color: AppColors.grey2,
+                    strokeWidth: 1,
+                  ),
+                ),
+                borderData: FlBorderData(show: false),
+                barGroups: [
+                  BarChartGroupData(
+                    x: 0,
+                    barRods: [
+                      BarChartRodData(
+                        toY: 60,
+                        color: AppColors.primaryColor,
+                        width: 20.w,
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ],
+                  ),
+                  BarChartGroupData(
+                    x: 1,
+                    barRods: [
+                      BarChartRodData(
+                        toY: 280,
+                        color: AppColors.primaryColor,
+                        width: 20.w,
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ],
+                  ),
+                  BarChartGroupData(
+                    x: 2,
+                    barRods: [
+                      BarChartRodData(
+                        toY: 180,
+                        color: AppColors.primaryColor,
+                        width: 20.w,
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ],
+                  ),
+                  BarChartGroupData(
+                    x: 3,
+                    barRods: [
+                      BarChartRodData(
+                        toY: 400,
+                        color: AppColors.primaryColor,
+                        width: 20.w,
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+///////////// CUSTOMER TIMELINE//////////////
+class CustomerTimeline extends StatelessWidget {
+  final List<CustomerBooking> bookings;
+
+  const CustomerTimeline({super.key, required this.bookings});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: bookings.length,
+      itemBuilder: (context, index) {
+        final booking = bookings[index];
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  blurRadius: 4,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundImage: NetworkImage(booking.customerImageUrl),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: RichText(
+                                text: TextSpan(
+                                  style: DefaultTextStyle.of(context).style,
+                                  children: [
+                                    TextSpan(
+                                      text: '${booking.customerName}: ',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: booking.phoneNumber,
+                                      style: const TextStyle(
+                                        color: Color(0xFF2B2B2B),
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFF0F9F4),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    width: 6,
+                                    height: 6,
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xFF1C8A4C),
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    booking.status,
+                                    style: const TextStyle(
+                                      color: Color(0xFF1C8A4C),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        RichText(
+                          text: TextSpan(
+                            style: const TextStyle(fontSize: 12),
+                            children: [
+                              const TextSpan(
+                                text: 'Service booked: ',
+                                style: TextStyle(
+                                    color: Color(0xFF0051C4),
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              TextSpan(
+                                text: booking.serviceType,
+                                style: const TextStyle(color: Color(0xFF667085)),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        RichText(
+                          text: TextSpan(
+                            style: const TextStyle(fontSize: 12),
+                            children: [
+                              const TextSpan(
+                                text: 'From-',
+                                style: TextStyle(color: Color(0xFF0051C4)),
+                              ),
+                              TextSpan(
+                                text: '${booking.startTime} / ',
+                                style: const TextStyle(color: Color(0xFF2B2B2B)),
+                              ),
+                              const TextSpan(
+                                text: 'To: ',
+                                style: TextStyle(color: Color(0xFF0051C4)),
+                              ),
+                              TextSpan(
+                                text: '${booking.endTime} = ',
+                                style: const TextStyle(color: Color(0xFF2B2B2B)),
+                              ),
+                              TextSpan(
+                                text: booking.duration,
+                                style: const TextStyle(color: Color(0xFF0051C4)),
+                              ),
+                              const TextSpan(
+                                text: ' used',
+                                style: TextStyle(color: Color(0xFF2B2B2B)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class CustomerBooking {
+  final String customerName;
+  final String phoneNumber;
+  final String serviceType;
+  final String startTime;
+  final String endTime;
+  final String duration;
+  final String status;
+  final String customerImageUrl;
+
+  CustomerBooking({
+    required this.customerName,
+    required this.phoneNumber,
+    required this.serviceType,
+    required this.startTime,
+    required this.endTime,
+    required this.duration,
+    required this.status,
+    required this.customerImageUrl,
+  });
+}
+
+/////////////NAVIGATION BAR/////////////////
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
 
