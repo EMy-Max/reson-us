@@ -27,4 +27,8 @@ class AppColors {
 class AppText {
   static const String brandName = 'Reservon';
   static const String brandTag = 'Scheduling & Invoicing made easy!';
+  static const String schedulingSubText = 'Manage your appointments and \ntheir details here';
+  static const String ScheduleZeroText = 'No appointmet activities going on yet, \n they will show here if you have one';
+  static const String schedulingAnAppointment = 'Schedule an appointment';
+  static const String customerTimeline = 'Customer timeline';
 }

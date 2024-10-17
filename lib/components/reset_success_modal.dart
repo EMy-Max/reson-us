@@ -3,8 +3,10 @@ import 'package:reservon/utilities/exports.dart';
 
 class ResetSuccessModal extends StatelessWidget {
   final VoidCallback onOkPressed ;
+  final String titleText;
+  final String subText;
 
-  const ResetSuccessModal({super.key, required this.onOkPressed});
+  const ResetSuccessModal({super.key, required this.onOkPressed, required this.titleText, required this.subText});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class ResetSuccessModal extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Success',
+                    titleText, // 'Success',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 18.sp,
@@ -60,8 +62,8 @@ class ResetSuccessModal extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5.h),
-                  const Text(
-                    'Your password has been changed successfully.',
+                   Text(
+                    subText,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: AppColors.grey3,
@@ -101,4 +103,3 @@ class ResetSuccessModal extends StatelessWidget {
     );
   }
 }
-

@@ -86,7 +86,7 @@ class Login extends StatelessWidget {
                             ],
                           ),
                         ),
-                        AuthNavButton(buttonText: 'Continue', onTap: () {
+                        AuthNavButton(buttonChild: Text('Continue', style: const TextStyle(color: Colors.white),), onTap: () {
 
                         },),
                       ],

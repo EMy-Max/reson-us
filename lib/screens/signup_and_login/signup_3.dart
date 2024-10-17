@@ -68,7 +68,7 @@ class Signup3 extends StatelessWidget {
                             Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
                           ],
                         ),
-                        AuthNavButton(buttonText: 'Sign Up', onTap: () {
+                        AuthNavButton(buttonChild: Text('Sign Up',style: const TextStyle(color: Colors.white),), onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => Login()),

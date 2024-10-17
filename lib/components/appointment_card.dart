@@ -23,6 +23,7 @@ class AppointmentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 120.h, // Set the height of the card
+      width: 180.w,
       child: Card(
         color: color,
         elevation: 0,
@@ -47,7 +48,7 @@ class AppointmentCard extends StatelessWidget {
                     style: TextStyle(
                       color: textColor,
                       fontWeight: FontWeight.normal,
-                      fontSize: 14.sp, // Use .sp for text size
+                      fontSize: 12.sp, // Use .sp for text size
                     ),
                   ),
                 ),

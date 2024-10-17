@@ -63,7 +63,7 @@ class PasswordReset extends StatelessWidget {
                             ],
                           ),
                         ),
-                        AuthNavButton(buttonText: 'Continue', onTap: () {
+                        AuthNavButton(buttonChild: Text('Continue',style: const TextStyle(color: Colors.white),), onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const PasswordReset2()),

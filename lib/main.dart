@@ -8,6 +8,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => PasswordResetProvider()),
         ChangeNotifierProvider(create: (_) => ServiceSelectionProvider()),
+        ChangeNotifierProvider(create: (_) => AppointmentProvider()),
         // Add more providers here as needed
       ],
       child: const MyApp(),
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
               fontFamily: 'static',
           ),
           //home: const CombinedDashboardScreen(),
-          home: CombinedDashboardScreen(),
+          home: ScheduleActive(),
         );
       },
     );

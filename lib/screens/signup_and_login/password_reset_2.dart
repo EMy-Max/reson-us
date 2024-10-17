@@ -31,7 +31,8 @@ class PasswordReset2 extends StatelessWidget {
                   children: [
                     Text(
                       'Reset password',
-                      style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 24.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10.h),
                     const Text(
@@ -48,7 +49,8 @@ class PasswordReset2 extends StatelessWidget {
                     // Use CustomTextField for confirm password input
                     CustomTextField(
                       label: 'Confirm password',
-                      controller: passwordResetProvider.confirmPasswordController,
+                      controller:
+                          passwordResetProvider.confirmPasswordController,
                       obscureText: true,
                     ),
                     SizedBox(height: 30.h),
@@ -57,22 +59,45 @@ class PasswordReset2 extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Text("Remember password?", style: TextStyle(color: AppColors.primaryColor),),
-                            SizedBox(width: 5.w,),
-                            const Text('Login', style: TextStyle(color: AppColors.yellowWarningD,fontWeight: FontWeight.w500),),
+                            const Text(
+                              "Remember password?",
+                              style: TextStyle(color: AppColors.primaryColor),
+                            ),
+                            SizedBox(
+                              width: 5.w,
+                            ),
+                            const Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: AppColors.yellowWarningD,
+                                  fontWeight: FontWeight.w500),
+                            ),
                           ],
                         ),
-                        AuthNavButton(buttonText: 'Continue', onTap: () {
+                        AuthNavButton(
+                          buttonChild: Text(
+                            'Continue',
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          onTap: () {
                             showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                            return ResetSuccessModal(onOkPressed: () {  },); // Your modal widget
-                            },
+                              context: context,
+                              builder: (BuildContext context) {
+                                return ResetSuccessModal(
+                                  onOkPressed: () {},
+                                  titleText: 'Success',
+                                  subText:
+                                      'Your password has been changed successfully.',
+                                ); // Your modal widget
+                              },
                             );
-                        },),
+                          },
+                        ),
                       ],
                     ),
-                    SizedBox(height: 20.h,),
+                    SizedBox(
+                      height: 20.h,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -17,7 +17,7 @@ export 'package:reservon/utilities/global_variables.dart';
 export 'package:reservon/components/brand_logo_name_tag.dart';
 export 'package:reservon/components/auth_process_appbar.dart';
 export 'package:reservon/components/auth_bottom_card.dart';
-export 'package:reservon/components/business_type_dropdown.dart';
+export 'package:reservon/components/custom_dropdown.dart';
 export 'package:reservon/components/signup_buttons.dart';
 export 'package:reservon/components/auth_nav_button.dart';
 export 'package:reservon/components/notification_checkbox.dart';
@@ -27,6 +27,9 @@ export 'package:reservon/components/dashb_navbar.dart';
 export 'package:reservon/components/custom_textfield.dart';
 // export 'package:reservon/components/serviceselection_widgets.dart';
 export 'package:reservon/components/appointment_card.dart';
+export 'package:reservon/components/customer_timeline.dart';
+export 'package:reservon/components/schedule_button.dart';
+
 
 
 
@@ -41,8 +44,11 @@ export 'package:reservon/screens/signup_and_login/signup_3.dart';
 export 'package:reservon/screens/signup_and_login/login.dart';
 export 'package:reservon/screens/signup_and_login/password_reset_1.dart';
 export 'package:reservon/screens/signup_and_login/password_reset_2.dart';
-export 'package:reservon/screens/signup_and_login/reset_success_modal.dart';
+export 'package:reservon/components/reset_success_modal.dart';
 export 'package:reservon/screens/dashboard/dashboard.dart';
+export 'package:reservon/screens/scheduling/scheduling_zero.dart';
+export 'package:reservon/screens/scheduling/schedule_active.dart';
+export 'package:reservon/screens/scheduling/create_schedule_modal.dart';
 
 
 
@@ -51,3 +57,4 @@ export 'package:reservon/providers/signup_provider.dart';
 export 'package:reservon/providers/login_provider.dart';
 export 'package:reservon/providers/resetpassword_provider.dart';
 export 'package:reservon/providers/serviceselection_provider.dart';
+export 'package:reservon/providers/appointmentschedule_provider.dart';

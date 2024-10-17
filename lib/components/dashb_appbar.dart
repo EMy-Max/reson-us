@@ -1,7 +1,8 @@
 import 'package:reservon/utilities/exports.dart';
 
 class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget{
-  const DashboardAppBar({super.key});
+  final String title;
+  const DashboardAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +10,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget{
       backgroundColor: Colors.white,
       elevation: 0,
       title: Text(
-        'Dashboard',
+        title,
         style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
       ),
       actions: [
